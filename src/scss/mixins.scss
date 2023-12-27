@@ -1,0 +1,75 @@
+//# Create misc. mixins here. Incase you would like to resuse some properties in JS directly,
+//# create a class instead & attach it directly in JS or use @extend.
+
+//# Incase you want to use a style/class/properties both in JS & within responsive-set,
+//# then create a mixin & extend the original class in the mixin. Then use either the mixin in another class
+//# if it is breakpoint specific or else extend it in that class or use it in className in JS.
+
+@mixin responsive-set($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  }
+}
+
+@mixin typography($font-size, $line-height, $font-weight) {
+  font-size: $font-size;
+
+  @if $line-height {
+    line-height: $line-height;
+  }
+  @if $font-weight {
+    font-weight: $font-weight;
+  }
+}
+
+@mixin list-clear {
+  text-decoration: none;
+  list-style: none;
+}
+
+@mixin horizontal-divider($color, $size) {
+  @if $color {
+    border-top: 1px solid $color;
+  }
+}
+@mixin horizontal-divider-bottom($color, $size) {
+  @if $color {
+    border-bottom: 1px solid $color;
+  }
+}
+
+@mixin vertical-divider($color, $size) {
+  @if $color {
+    border-right: 1px solid $color;
+  }
+}
+@mixin horizontal-divider-y($color, $size) {
+  @if $color {
+    border-top: 1px solid $color;
+    border-bottom: 1px solid $color;
+  }
+}
+
+@mixin linkColorSet($color, $hoverColor: $color) {
+  &[aria-disabled="true"] {
+    color: $color !important;
+  }
+  &:not([aria-disabled="true"]) {
+    color: $color !important;
+    &:hover {
+      color: $hoverColor !important;
+    }
+  }
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+@mixin border-radius-smoothness($borderRadius) {
+  border-radius: $borderRadius;
+
+  @include responsive-set("upto-tablet-md") {
+  }
+}

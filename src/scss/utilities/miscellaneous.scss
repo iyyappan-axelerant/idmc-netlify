@@ -1,0 +1,193 @@
+//# Create miscellaneous reusable classes here that dont necessarily
+//# belong to a category of Elements or components. Only create & use those classes/properties
+//# that arent provided by Bootstrap. It is likely that Bootstrap already has those classes predefined.
+
+.kashmir-blue-b-top {
+  border-top: 1px solid $kashmirBlue;
+}
+
+.kashmir-blue-b-right {
+  border-right: 1px solid $kashmirBlue;
+}
+
+.b-top-white {
+  border-top: 2px solid $white;
+}
+
+.night-rider-b-right {
+  border-right: 2px solid $nightRider;
+}
+
+.footer-partition {
+  @include responsive-set("upto-laptop-xl") {
+    border-bottom: 1.5px solid $kashmirBlue;
+    padding: 1px;
+    text-align: center;
+    width: 100%;
+    max-width: 3.25rem;
+    margin: 0rem auto 1rem;
+  }
+  @include responsive-set("upto-tablet-md") {
+    max-width: 1.5rem;
+  }
+  @include responsive-set("laptop-xl") {
+    border-right: 1px solid $kashmirBlue;
+  }
+}
+
+.geyser-b-bottom {
+  border-bottom: 1px solid $geyser;
+}
+
+.mb-n-3 {
+  margin-bottom: -3px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+//Normal width container if you need for all breakpoints
+.max-width-setter {
+  max-width: none;
+  @include responsive-set("upto-mobile-sm") {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  @include responsive-set("mob-sm-to-tab-lg") {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  @include responsive-set("tab-lg-to-lapt-xxl") {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  @include responsive-set("lapt-xxl-to-wide-screen") {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+
+  @include responsive-set("wide-screens") {
+    max-width: 1640px;
+    margin: 0 auto;
+  }
+}
+
+//Secondary width container if you need to apply till 991px
+.max-width-setter-secondary {
+  @include responsive-set("upto-tablet-lg") {
+    margin: 0;
+  }
+
+  @include responsive-set("tab-lg-to-lapt-xxl") {
+    margin: 0rem 3rem;
+  }
+
+  @include responsive-set("lapt-xxl-to-wide-screen") {
+    margin: 0rem 4rem;
+  }
+
+  @include responsive-set("wide-screens") {
+    max-width: 1640px;
+    margin: 0 auto;
+  }
+}
+
+.no-max-width {
+  max-width: none;
+}
+
+//Apply this general-container class with Bootstrap's Container element or class.
+.general-container {
+  @include responsive-set("wide-screens") {
+    max-width: 1640px;
+  }
+}
+
+.my-5rem {
+  @include responsive-set("upto-tablet-md") {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+  }
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
+}
+
+.cta-wrapper {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 3rem;
+
+  @include responsive-set("upto-tablet-md") {
+    flex-direction: column;
+  }
+}
+
+.caption-credit {
+  color: $white;
+  position: absolute;
+  text-align: right;
+  bottom: 2rem;
+  right: 4rem;
+  @include responsive-set("upto-tablet-lg") {
+    position: unset;
+    margin: 1rem 1rem auto auto;
+    max-width: 70%;
+  }
+
+  p {
+    text-shadow: 1px 5px 3px $regalBlue;
+    padding-bottom: 0rem;
+
+    @include responsive-set("upto-tablet-lg") {
+      text-shadow: none;
+      color: $regalBlue;
+    }
+  }
+}
+
+.text-align-center {
+  text-align: center;
+  & ~ .cta-wrapper {
+    justify-content: center;
+  }
+}
+
+.rounded-input,
+.rounded-input:focus-visible {
+  border-radius: 30px;
+  border: 1px solid $disasterPacificBlue;
+  font-family: "proxima-nova";
+  padding: 0.5rem 1.25rem;
+}
+
+.react-select {
+  &__control {
+    border: 1px solid $disasterPacificBlue !important;
+  }
+  &__multi-value {
+    background-color: $disasterPacificBlue !important;
+    color: $white !important;
+    &__label {
+      color: $white !important;
+    }
+    &__remove:hover {
+      background-color: darken(
+        $color: $disasterPacificBlue,
+        $amount: 5%
+      ) !important;
+      color: $white !important;
+    }
+  }
+}

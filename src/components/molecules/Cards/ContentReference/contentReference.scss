@@ -1,0 +1,67 @@
+@use "sass:map";
+
+@import "../../../../scss/main.scss";
+@import "../../../../scss/mixins.scss";
+@import "../../../../scss/all.variables.scss";
+@import "../../../../scss/all.utilities.scss";
+@import "../../../../scss/components/eyebrow.scss";
+@import "../../../../scss/components/typography.scss";
+
+.content {
+  &-card {
+    cursor: pointer;
+
+    &__link {
+      color: unset;
+    }
+    &__img-wrapper {
+      position: relative;
+    }
+    &__img {
+      height: 320px;
+      width: 100%;
+      object-fit: cover;
+      @include border-radius-smoothness(4px);
+      @include responsive-set("upto-mobile-sm") {
+        height: 200px;
+      }
+      z-index: -1;
+    }
+    &__eyebrow {
+      position: absolute;
+      z-index: 1;
+      bottom: 0rem;
+      border-radius: 0 !important;
+      border-bottom-left-radius: 4px !important;
+    }
+    &__summary {
+      & > p {
+        @extend .typo-medium-text;
+        @extend .font-proxima;
+        color: $textDimGray;
+      }
+    }
+
+    h6 {
+      color: $regalBlue;
+    }
+
+    .author-data {
+      display: flex;
+      align-items: center;
+
+      .avatar {
+        width: 10%;
+        margin-right: 0.5rem;
+      }
+    }
+
+    .tags-wrapper {
+      &__tag {
+        margin-top: 1rem;
+        @include typography(map.get($fontSize, "14"), 12px, 400);
+        color: $disasterPacificBlue;
+      }
+    }
+  }
+}

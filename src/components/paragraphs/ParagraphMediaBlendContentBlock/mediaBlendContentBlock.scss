@@ -1,0 +1,127 @@
+@use "sass:map";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.media-blend{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: $regalBlue;
+
+  &-root{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #fff;
+      
+  }
+  &-title{
+    @extend .typo-h1;
+    margin-bottom: 34px;
+    color: $regalBlue;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  &.bg-clr-white, &.bg-clr-lightgrey{
+    .media-blend-image-caption-info{
+      * {
+        color: $regalBlue!important;
+      }
+    }
+    .media-blend-image-caption-rights{
+      color: $regalBlue!important;
+    }
+    .media-blend-content{
+      h1, h2, h3, h4, h5, h6, p{
+        color: $regalBlue!important;
+      }
+    }
+  }
+
+  &-image{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    &-gatsby{
+      flex-grow: 1;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @include responsive-set("upto-tablet-lg") {
+        flex-grow: 0;
+        img{
+          width: 100%;
+          height: auto;
+          object-fit: cover!important;
+        }
+      }
+    }
+    &-caption{
+      flex-shrink: 1;
+      &-inner{
+        padding: 12px 34px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      &-info{
+        * {
+          color: $white;
+        }
+      }
+      &-rights{
+        color: $white;
+        @extend .typo-small-text;
+        font-style: italic;
+      }
+    }
+
+  }
+
+  &.media-blend-full{
+    img{
+      height: 430px!important;
+    }
+
+    .media-blend-content{
+      flex: 0!important;
+    }
+  }
+
+  &-content{
+    flex: 1;
+    padding: 50px;
+    @include responsive-set("upto-tablet-lg") {
+      flex: 0;
+      padding: 32px;
+    }
+    h4{
+      color: $white;
+      @extend .font-proxima;
+      @extend .typo-h4;
+    }
+    p{
+      color: $white;
+    }
+  }
+  &-cta{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 12px 0;
+    margin-top: 24px;
+  }
+}
+
+.media-blend-root .gatsby-image-wrapper [data-main-image] {
+  object-fit: cover !important;
+}

@@ -1,0 +1,243 @@
+@use "sass:map";
+
+//!BE CAREFUL WHILE EDITING CLASSES BELOW, THEY MIGHT BE USED IN BACKEND TOO.
+
+.typo-display1 {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "36"), 40px, 900);
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "48"), 56px, 900);
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "60"), 60px, 900);
+  }
+}
+
+.typo-display2 {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "32"), 36px, 900);
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "40"), 48px, 900);
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "48"), 52px, 900);
+  }
+}
+
+.typo-preHeading-h1 {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "14"), 20px, 500);
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "16"), 24px, 500);
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "18"), 28px, 500);
+  }
+}
+
+.typo-h1 {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "32"), 36px, 900);
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "38"), 48px, 900);
+    margin-top: 44px;
+    margin-bottom: 44px;
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "44"), 48px, 900);
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+}
+
+.typo-h2 {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "28"), 30px, 900);
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "32"), 40px, 900);
+    margin-top: 44px;
+    margin-bottom: 44px;
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "38"), 44px, 900);
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+}
+
+.typo-h3 {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "22"), 28px, 900);
+    margin-top: 36px;
+    margin-bottom: 36px;
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "24"), 28px, 900);
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "28"), 36px, 900);
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+.typo-h4 {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "20"), 24px, 900);
+    margin-top: 34px;
+    margin-bottom: 34px;
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "22"), 28px, 900);
+    margin-top: 34px;
+    margin-bottom: 34px;
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "26"), 36px, 900);
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+}
+
+.typo-h5 {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "18"), 24px, 700);
+    margin-top: 22px;
+    margin-bottom: 22px;
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "20"), 28px, 700);
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "24"), 28px, 700);
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+}
+
+.typo-h6 {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "16"), 22px, 700);
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "18"), 22px, 700);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "22"), 24px, 700);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.font-freight {
+  font-family: freight-big-pro;
+}
+
+.font-proxima {
+  font-family: proxima-nova;
+}
+
+.typo-small-text {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "13"), 20px, 400);
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "13"), 20px, 400);
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "13"), 20px, 400);
+  }
+}
+
+.typo-small-text-teaserboxes {
+}
+
+.typo-quote {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "20"), 28px, 400);
+  }
+
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "22"), 36px, 400);
+  }
+
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "24"), 40px, 400);
+  }
+}
+
+.typo-form-fields {
+}
+
+.typo-small-text-bold {
+}
+
+.typo-medium-text {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "14"), 20px, 400);
+  }
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "15"), 24px, 400);
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "16"), 24px, 400);
+  }
+}
+
+.typo-heading-teaserBox {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "18"), 20px, 500);
+  }
+
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "18"), 20px, 500);
+  }
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "20"), 28px, 500);
+  }
+}
+
+.typo-paragraph {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "14"), 22px, 400);
+  }
+
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "15"), 24px, 400);
+  }
+
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "16"), 26px, 400);
+  }
+}
+
+.typo-quote {
+  @include responsive-set("upto-tablet-md") {
+    @include typography(map.get($fontSize, "20"), 28px, 400);
+  }
+
+  @include responsive-set("tablet-md") {
+    @include typography(map.get($fontSize, "22"), 36px, 400);
+  }
+
+  @include responsive-set("laptop-xl") {
+    @include typography(map.get($fontSize, "24"), 40px, 400);
+  }
+}

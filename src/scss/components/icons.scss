@@ -1,0 +1,34 @@
+.white-icon {
+  border-radius: 50%;
+  background-color: $white;
+  padding: 5px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 22px;
+  margin-right: 10px;
+  color: $disasterPacificBlue;
+}
+
+.regentGrey-icon {
+  color: $regentGrey;
+}
+
+.regentGrey-icon:hover {
+  color: $disasterPacificBlue;
+}
+
+.svg-icon:hover {
+  path {
+    fill: $disasterPacificBlue;
+  }
+}
+
+.svg-icon-stroke:hover {
+  path {
+    stroke: $disasterPacificBlue;
+  }
+}

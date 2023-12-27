@@ -1,0 +1,123 @@
+@use "sass:map";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.latest-feature-content {
+  padding: 25px 0 40px;
+  background-color: $lightCream;
+
+  &.bg-clr-disasterPacificBlue,
+  &.bg-clr-blue,
+  &.bg-clr-regalBlue,
+  &.bg-clr-darkgrey {
+    .lfc-title {
+      color: #ffffff;
+    }
+  }
+}
+
+.lfc {
+  &-title {
+    color: $regalBlue;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
+    @include responsive-set("upto-tablet-lg") {
+      flex-direction: column;
+    }
+    &-image {
+      flex: 1;
+      flex-basis: 50%;
+      width: 100%;
+      align-self: stretch;
+      @include responsive-set("upto-tablet-lg") {
+        flex-basis: 100%;
+      }
+      & > div {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-author-thumb {
+      border-radius: 50px;
+      overflow: hidden;
+    }
+    &-details {
+      flex: 1;
+      flex-basis: 50%;
+      width: 100%;
+      padding: 65px;
+      @include border-radius-smoothness(4px);
+      @include responsive-set("upto-tablet-lg") {
+        flex-basis: 50%;
+        padding: 34px;
+      }
+      @include responsive-set("upto-tablet-md") {
+        padding: 24px;
+      }
+
+      &-meta {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 27px;
+        margin-bottom: 20px;
+        &-type {
+          @extend .font-proxima;
+          font-weight: bold;
+          text-transform: uppercase;
+          background-color: $pattensBlue;
+          color: $disasterPacificBlue;
+          padding: 0 13px;
+          display: inline-block;
+        }
+        &-published {
+          @extend .font-proxima;
+          @extend .typo-small-text;
+          font-weight: 300;
+          color: $cinder;
+        }
+      }
+
+      &-header {
+        @extend .font-freight;
+        color: $regalBlue;
+      }
+
+      &-authors {
+        display: flex;
+        list-style: none;
+        flex-direction: row;
+        gap: 24px;
+        padding: 0;
+        li {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 16px;
+          @extend .typo-small-text;
+          @extend .font-proxima;
+        }
+      }
+      &-tags {
+        text-overflow: ellipsis;
+        @extend .font-proxima;
+        @extend .typo-medium-text;
+        color: #566881;
+      }
+    }
+  }
+}
+
+.latest-feature-content .gatsby-image-wrapper [data-main-image] {
+  object-fit: cover !important;
+}

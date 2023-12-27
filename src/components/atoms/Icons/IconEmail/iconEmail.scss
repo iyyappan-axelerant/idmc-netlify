@@ -1,0 +1,42 @@
+@import "../../../../scss/all.variables.scss";
+
+.icon-email-primary{
+  path{
+    fill: $regalBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-email-secondary{
+  path{
+    fill: $disasterPacificBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $regalBlue;
+    }
+  }
+}
+.icon-email-white{
+  path{
+    fill: $white;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-email-gray{
+  path{
+    fill: $regentGrey;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}

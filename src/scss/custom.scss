@@ -1,0 +1,36 @@
+// required to get $orange variable
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "./variables/colors";
+@import "./variables/fonts";
+@import "./mixins.scss";
+@import "./all.variables.scss";
+
+html {
+  font-family: "proxima-nova";
+}
+
+$primary: $regalBlue;
+$secondary: $disasterPacificBlue;
+$display-font-family: proxima-nova;
+
+:root {
+  --bs-body-font-family: "proxima-nova", sans-serif !important;
+  --bs-blue: $disasterPacificBlue;
+}
+
+// merge with existing $theme-colors map
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+  )
+);
+
+// set changes
+@import "bootstrap";

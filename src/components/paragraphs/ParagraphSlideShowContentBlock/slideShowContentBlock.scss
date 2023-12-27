@@ -1,0 +1,116 @@
+@use "sass:map";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.slide-show {
+  max-width: 900px;
+  width: 100%;
+  &-title {
+    @extend .typo-h2;
+    @extend .font-freight;
+    @extend .color-regalBlue;
+    margin: 20px 0;
+    @include responsive-set("tablet-md") {
+      margin: 44px 0;
+    }
+    @include responsive-set("upto-mobile-sm") {
+      padding: 0 24px;
+    }
+  }
+  &-image {
+    max-width: 1080px;
+    width: 100%;
+    max-height: 720px;
+  }
+  &-button {
+    display: none;
+    @include responsive-set("tablet-md") {
+      display: flex;
+      align-items: center;
+      gap: $gap-2;
+    }
+  }
+  &-icon {
+    background: transparent;
+    border-radius: 1000px;
+    border: 1px solid $regalBlue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  &-pagination {
+    text-wrap: nowrap;
+    width: max-content;
+    @extend .font-proxima;
+    @extend .color-regalBlue;
+  }
+  &-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $gap-2;
+    width: 100%;
+    margin-bottom: 40px;
+    @include responsive-set("upto-mobile-sm") {
+      padding: 0 24px;
+    }
+  }
+  &-caption {
+    @extend .typo-medium-text;
+    color: $textDimGray;
+    align-items: center;
+    display: flex;
+    @extend .font-proxima;
+    width: 100%;
+    padding: 20px 0;
+    @include responsive-set("tablet-md") {
+      min-height: 100px;
+    }
+  }
+  &-swiper {
+    position: absolute;
+    max-width: 1080px;
+    width: 100%;
+  }
+  &-swiper-slide {
+    height: 590px;
+    @include responsive-set("tablet-md") {
+      height: auto;
+    }
+  }
+}
+.img-div {
+  width: 100%;
+  height: 550px;
+  @include responsive-set("tab-md-to-tab-lg") {
+    max-width: 980px;
+  }
+}
+.d {
+  height: 600px;
+}
+
+.slide-show-icon:hover {
+  @extend .bg-clr-regalBlue;
+  color: $white;
+}
+.bi {
+  font-size: 20px;
+}
+.img-slide {
+  max-height: 550px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  @include responsive-set("tab-md-to-tab-lg") {
+    max-width: 980px;
+  }
+  @extend .cursor-pointer;
+  border-radius: 3px;
+  @include responsive-set("upto-mobile-sm") {
+    border-radius: 0px;
+  }
+}

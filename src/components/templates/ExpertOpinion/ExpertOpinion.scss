@@ -1,0 +1,101 @@
+@use "sass:map";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.hero {
+  &-author {
+    margin-top: 10px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: auto auto;
+    @include responsive-set("upto-mobile-sm") {
+      display: block;
+    }
+    &-divider {
+      @include horizontal-divider-y($geyser, null);
+      padding: 12px 0;
+    }
+    &-divide {
+      @include horizontal-divider($geyser, null);
+    }
+    &-body {
+      display: flex;
+      align-items: center;
+      gap: $gap-3;
+      @extend .typo-small-text;
+      color: black;
+      color: $cinder;
+    }
+    &-title {
+      font-weight: 700;
+      margin-bottom: 3px;
+      @include linkColorSet($cinder);
+    }
+    &-designation {
+      font-weight: 300;
+      @include linkColorSet($cinder);
+    }
+  }
+
+  &-heading {
+    @extend .typo-h2;
+    @extend .font-freight;
+    @extend .color-regalBlue;
+    margin-bottom: 44px;
+  }
+  &-quote {
+    @extend .color-disasterPacificBlue;
+    padding: 0px 20px;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    &-title {
+      @extend .typo-quote;
+      font-style: italic;
+      margin-left: 0;
+      margin-bottom: 20px;
+      @include responsive-set("tablet-lg") {
+        margin-left: 0.5rem;
+        margin-bottom: 48px;
+      }
+    }
+    &-icon {
+      font-size: 160px;
+      display: block;
+      display: flex;
+      justify-content: center;
+      margin-bottom: -6rem;
+      @include responsive-set("tablet-lg") {
+        margin-bottom: -7rem;
+        margin-top: -5rem;
+        margin-left: -4.5rem;
+      }
+    }
+    @include responsive-set("mobile-sm") {
+      padding: 0px;
+    }
+    @include responsive-set("tablet-lg") {
+      margin: 100px 0;
+    }
+  }
+}
+.eyebrow {
+  &-profile {
+    font-weight: 300;
+  }
+  &-divider-quote {
+    border-color: $disasterPacificBlue;
+    @extend .night-rider-b-right;
+    height: 12px;
+  }
+}
+
+.divide {
+  @include horizontal-divider($geyser, null);
+  margin: 10px 0;
+  display: none;
+  @include responsive-set("upto-mobile-sm") {
+    display: block;
+  }
+}

@@ -1,0 +1,20 @@
+a {
+  font-family: "proxima-nova";
+  text-decoration: none;
+  color: $disasterPacificBlue;
+  @include linkColorSet($disasterPacificBlue);
+}
+
+.white-link {
+  color: $white!important;
+}
+a.white-link {
+  text-decoration: none;
+  @include linkColorSet($white, $disasterPacificBlue);
+}
+
+
+.white-link:hover {
+  color: $disasterPacificBlue;
+  background-color: transparent;
+}

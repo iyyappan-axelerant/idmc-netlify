@@ -1,0 +1,85 @@
+@use "sass:map";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.quote{
+  &-container{
+    margin: 32px 0; //spacing for component
+    position: relative;
+    padding: 18px 0 18px 111px;
+
+    @include responsive-set("upto-tablet-md") {
+      padding: 18px 0 18px 42px;
+    }
+
+    &:before{
+      content: ' ';
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 100px;
+      width: 10px;
+      height: 100%;
+      background-color: $disasterPacificBlue;
+      @include responsive-set("upto-tablet-md") {
+        width: 7px;
+      }
+    }
+  }
+
+  &-img{
+    margin-bottom: 78px;
+    @include responsive-set("upto-tablet-md") {
+      margin-bottom: 42px;
+    }
+    @include responsive-set("upto-tablet-md") {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &-content{
+    margin-bottom: 75px;
+    @include responsive-set("upto-tablet-md") {
+      margin-bottom: 42px;
+    }
+    & h1, h2, h3, h4, h5, h6, p{
+      @extend .font-proxima;
+      font-style: italic;
+      color: $disasterPacificBlue;
+    }
+  }
+
+  &-person{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+
+    &-image{
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 100px;
+      @include responsive-set("upto-tablet-md") {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    &-name{
+      @extend .font-proxima;
+      @extend .typo-quote;
+      font-weight: 700;
+      margin-bottom: 0;
+      color: $disasterPacificBlue;
+    }
+    &-org{
+      @extend .font-proxima;
+      @extend .typo-paragraph;
+      color: $disasterPacificBlue;
+    }
+  }
+}

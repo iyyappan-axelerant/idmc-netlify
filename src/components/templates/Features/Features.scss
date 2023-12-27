@@ -1,0 +1,10 @@
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.features-iframe {
+  display: block;
+  border: none;
+  height: 100vh;
+}

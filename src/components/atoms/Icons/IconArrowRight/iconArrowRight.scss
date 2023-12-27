@@ -1,0 +1,45 @@
+@import "../../../../scss/all.variables.scss";
+
+.icon-arrow-right-primary{
+  path{
+    stroke: $regalBlue;
+  }
+  &.has-hover:hover{
+    path{
+      stroke: $disasterPacificBlue;
+    }
+  }
+}
+.icon-arrow-right-secondary{
+  path{
+    stroke: $disasterPacificBlue;
+  }
+  &.has-hover:hover{
+    path{
+      stroke: $regalBlue;
+    }
+  }
+}
+.icon-arrow-right-white{
+  path{
+    stroke: $white;
+  }
+  &.has-hover:hover{
+    path{
+      stroke: $disasterPacificBlue;
+    }
+  }
+}
+.icon-arrow-right-gray{
+  path{
+    stroke: $regentGrey;
+  }
+  &.has-hover:hover{
+    path{
+      stroke: $disasterPacificBlue;
+    }
+  }
+}
+.align-icon-arrow-right{
+  margin-bottom: 1px;
+}

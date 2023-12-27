@@ -1,0 +1,80 @@
+@use "sass:map";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+@import "../../../scss/components/eyebrow.scss";
+
+.ls {
+  @extend .color-regalBlue;
+
+  display: flex;
+  justify-content: center;
+
+  &-slide-wrapper {
+    width: 100%;
+    display: block;
+    @include responsive-set("tablet-lg") {
+      display: flex;
+    }
+    &-image {
+      img {
+        @include border-radius-smoothness(4px);
+      }
+      @include responsive-set("tablet-lg") {
+        width: 50%;
+      }
+    }
+    &-body {
+      @include border-radius-smoothness(4px);
+
+      @include responsive-set("tablet-lg") {
+        width: 50%;
+      }
+      @include responsive-set("upto-mobile-sm") {
+        padding: 24px;
+      }
+      padding: 40px 40px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-button {
+    display: flex;
+    @include responsive-set("tab-lg-to-lapt-xxl") {
+      display: block;
+    }
+    @include responsive-set("upto-mobile-sm") {
+      display: block;
+    }
+  }
+
+  &-eyebrow {
+    @extend .font-proxima;
+    margin-bottom: 24px;
+    @extend .boxed-eyebrow-dark;
+    @include responsive-set("upto-mobile-sm") {
+      margin-bottom: 20px;
+    }
+  }
+
+  &-title {
+    // @extend .typo-display2;
+    @extend .color-regalBlue;
+    margin-bottom: 36px;
+    @include responsive-set("upto-mobile-sm") {
+      margin-bottom: 20px;
+    }
+  }
+
+  &-subtitle {
+    @extend .typo-medium-text;
+    @extend .font-proxima;
+    color: $textDimGray;
+    margin-bottom: 36px;
+    @include responsive-set("upto-mobile-sm") {
+      margin-bottom: 20px;
+    }
+  }
+}

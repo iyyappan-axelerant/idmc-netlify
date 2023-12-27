@@ -1,0 +1,45 @@
+@import "../../../../scss/mixins.scss";
+@import "../../../../scss/all.variables.scss";
+@import "../../../../scss/components/typography";
+
+
+.icon-linkedin-primary{
+  path{
+    fill: $regalBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-linkedin-secondary{
+  path{
+    fill: $disasterPacificBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $regalBlue;
+    }
+  }
+}
+.icon-linkedin-white{
+  path{
+    fill: $white;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-linkedin-gray{
+  path{
+    fill: $regentGrey;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}

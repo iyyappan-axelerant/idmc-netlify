@@ -1,0 +1,77 @@
+@use "sass:map";
+
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/eyebrow.scss";
+@import "../../../scss/components/typography.scss";
+
+.media-beside {
+  display: flex;
+  max-width: 100vw;
+  align-items: center;
+
+  @include responsive-set("upto-laptop-xl") {
+    flex-direction: column-reverse;
+  }
+
+  &__content {
+    @include responsive-set("upto-laptop-xl") {
+      width: 100%;
+      padding: 0 0rem 2.75rem;
+    }
+
+    @include responsive-set("mobile-xs") {
+      padding: 0rem 1.5rem 2.75rem;
+    }
+    @include responsive-set("tab-lg-to-lapt-xl") {
+      padding: 0rem 0rem 4rem;
+    }
+    @include responsive-set("laptop-xl") {
+      padding: 4rem 3rem 6rem 5rem;
+    }
+    @include responsive-set("wide-screens") {
+      padding: 4rem 5rem 6rem 8rem;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    align-self: stretch;
+
+    .gatsby-image-wrapper {
+      height: 100%;
+      width: 100%;
+      @include responsive-set("laptop-xl") {
+        width: 50vw;
+      }
+    }
+
+    .captions-wrapper {
+      @extend .caption-credit;
+      @include responsive-set("upto-tablet-lg") {
+        position: absolute;
+        bottom: 1.5rem;
+        right: 0.5rem;
+      }
+      p {
+        @include responsive-set("upto-tablet-lg") {
+          text-shadow: inherit;
+          padding-bottom: 0rem;
+          color: inherit;
+        }
+      }
+      @include responsive-set("tablet-md") {
+        max-width: 70%;
+        right: 3rem;
+      }
+    }
+  }
+
+  &__btns-wrapper {
+    display: flex;
+    @include responsive-set("upto-laptop-xl") {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.hover-text-color:hover {
+    color: $regalBlue;
+  }
+  .external-article {
+    &-container {
+      max-width: 1640px;
+      padding: 0rem 1.5rem;
+      margin: auto;
+      @include responsive-set("mobile-sm") {
+        padding: 0rem 2.6rem;
+      }
+      @include responsive-set("tablet-md") {
+        padding: 1rem 2.6rem;
+      }
+      @include responsive-set("tablet-lg") {
+        padding: 1rem 4rem;
+      }
+  
+      @include responsive-set("laptop-xl") {
+        padding: 1rem 3.5rem;
+      }
+      @include responsive-set("laptop-xxl") {
+        padding: 1rem 1rem;
+      }
+    }
+  }
+  

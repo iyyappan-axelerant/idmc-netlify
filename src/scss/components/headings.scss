@@ -1,0 +1,44 @@
+@use "sass:map";
+
+@import "../all.variables.scss";
+@import "../mixins.scss";
+
+h1 {
+  @extend .font-freight;
+  @extend .typo-h1;
+}
+
+h2 {
+  @extend .typo-h2;
+  @extend .font-freight;
+}
+
+h3 {
+  @extend .typo-h3;
+  @extend .font-freight;
+}
+h4 {
+  @extend .typo-h4;
+  @extend .font-proxima;
+}
+
+h5 {
+  margin-bottom: 0;
+  @extend .font-proxima;
+  @extend .typo-h5;
+}
+
+h6 {
+  @extend .font-proxima;
+  @extend .typo-h6;
+}
+
+p {
+  font-family: "proxima-nova";
+  margin-bottom: 0;
+  @extend .typo-paragraph;
+}
+
+li {
+  font-family: "proxima-nova";
+}

@@ -1,0 +1,14 @@
+@use "sass:map";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/components/typography.scss";
+@import "../../../scss/utilities/miscellaneous.scss";
+
+
+.paragraph-header-img {
+  position: relative;
+}
+
+.captions-wrapper {
+  @extend .caption-credit;
+}

@@ -1,0 +1,15 @@
+diff --git a/node_modules/gatsby-plugin-flexsearch/gatsby-node.js b/node_modules/gatsby-plugin-flexsearch/gatsby-node.js
+index de34237..dc24c1d 100644
+--- a/node_modules/gatsby-plugin-flexsearch/gatsby-node.js
++++ b/node_modules/gatsby-plugin-flexsearch/gatsby-node.js
+@@ -41,7 +41,9 @@ exports.onPostBootstrap = function(_ref, options) {
+ 
+             getNodes()
+                 .filter(node => {
+-                    if (node.internal.type === type) {
++                    // change: accept an array of node types rather than a single node type
++                    //if (node.internal.type === type) {
++                    if (type.includes(node.internal.type)) {
+                         return node
+                     }
+                 })

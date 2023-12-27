@@ -1,0 +1,25 @@
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+
+.paragraph-text-block {
+  border-radius: 12px !important;
+  margin-bottom: 40px;
+
+  @include responsive-set("upto-tablet-md") {
+    padding: 2rem 20px;
+  }
+  @include responsive-set("tab-md-to-lapt-xl") {
+    padding: 3rem 3rem;
+  }
+  @include responsive-set("laptop-xl") {
+    padding: 2rem 6rem 4rem;
+  }
+
+  table{
+    float: none!important;
+  }
+}
+
+.no-border-radius {
+  border-radius: 0 !important;
+}

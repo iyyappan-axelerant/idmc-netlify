@@ -1,0 +1,26 @@
+@use "sass:map";
+
+.boxed-eyebrow {
+  padding: 2px 13px 2px 13px;
+  border-radius: 3px;
+  @include typography(map.get($fontSize, "14"), 24px, 700);
+  color: $white;
+  width: fit-content;
+  text-transform: uppercase;
+}
+
+.boxed-eyebrow-dark {
+  @extend .boxed-eyebrow;
+  background-color: $regalBlue;
+}
+
+.boxed-eyebrow-blue {
+  @extend .boxed-eyebrow;
+  background-color: $disasterPacificBlue;
+}
+
+.boxed-eyebrow-pattens-blue {
+  @extend .boxed-eyebrow;
+  color: $disasterPacificBlue;
+  background-color: $pattensBlue;
+}

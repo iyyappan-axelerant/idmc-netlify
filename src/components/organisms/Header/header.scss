@@ -1,0 +1,393 @@
+@use "sass:map";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.navbar {
+  padding: 0rem;
+
+  &-collapse {
+    align-self: flex-start;
+    justify-content: end;
+  }
+
+  &-brand {
+    align-self: flex-end;
+    margin: 1.2rem 0rem;
+    @include responsive-set("upto-mobile-sm") {
+      margin-left: 20px;
+    }
+    @include responsive-set("mob-sm-to-tab-lg") {
+      margin-left: 2rem;
+    }
+  }
+  &-toggle {
+    margin: 1.5rem 0rem;
+    padding: 0rem !important;
+    border: none !important;
+    display: flex;
+    gap: $gap-4;
+    @include responsive-set("mob-sm-to-tab-lg") {
+      margin-right: 2rem;
+    }
+    @include responsive-set("upto-mobile-sm") {
+      margin: 1.5rem 0rem;
+      margin-right: 20px;
+    }
+  }
+  &-toggle > span {
+    width: 0rem !important;
+  }
+  &-toggle > i {
+    align-items: center;
+    margin: auto 0rem;
+    font-size: 22px;
+    color: $regalBlue;
+    cursor: pointer;
+    @include responsive-set("upto-mobile-sm") {
+      font-size: 18px;
+    }
+  }
+  &-toggle-search {
+    align-items: center;
+    margin: auto 0rem;
+    font-size: 22px;
+    color: $regalBlue;
+    cursor: pointer;
+    @include responsive-set("upto-mobile-sm") {
+      font-size: 18px;
+    }
+  }
+  &-header-logo {
+    width: auto;
+    height: auto;
+    margin: 0rem;
+    @include responsive-set("mobile-xs") {
+      margin: 0rem;
+      width: 8.75rem;
+      height: 1.875rem;
+    }
+    @include responsive-set("tablet-md") {
+      margin: 0rem;
+    }
+  }
+}
+
+.divider {
+  align-self: flex-start;
+  min-height: 2.6rem;
+  display: none;
+  @include responsive-set("tablet-lg") {
+    display: flex;
+  }
+  &-h {
+    border-top: 1px solid #dcdfe1;
+    width: 100%;
+    opacity: 0.1;
+  }
+  &-v {
+    margin: 0rem 1rem;
+  }
+}
+.vr {
+  @include responsive-set("upto-tablet-lg") {
+    min-height: 2rem !important;
+    align-items: center;
+    color: #dcdfe1;
+  }
+}
+.preHeader-link {
+  background: $regalBlue;
+  max-width: none;
+  @include responsive-set("tablet-lg") {
+    background: $white;
+  }
+
+  &-container {
+    display: block;
+    align-self: flex-end;
+    align-items: end;
+    min-height: 2.68rem;
+    gap: 0;
+    max-width: none;
+    margin-left: 0;
+    @include responsive-set("tablet-lg") {
+      gap: $gap-2;
+    }
+    @include responsive-set("tablet-lg") {
+      display: flex;
+      max-width: 33.35rem;
+      margin-left: auto;
+      justify-content: end;
+    }
+  }
+
+  &-nav {
+    display: flex;
+    align-self: flex-end;
+    padding-right: 0rem;
+    flex-direction: column;
+    margin-right: 0rem;
+    margin-top: 0.5rem;
+    margin-left: 0rem;
+    gap: $gap-5;
+    @include responsive-set("tablet-lg") {
+      margin-left: 0.1rem;
+      padding-right: 3rem;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &-nav > a {
+    @include responsive-set("upto-tablet-lg") {
+      @include linkColorSet($white);
+      @include typography(map.get($fontSize, "15"), 24px, 400);
+    }
+
+    @include responsive-set("tablet-lg") {
+      @include linkColorSet($regalBlue, $disasterPacificBlue);
+    }
+
+    @include typography(map.get($fontSize, "12"), 24px, 400);
+    text-wrap: nowrap;
+    width: max-content;
+    @include responsive-set("tablet-md") {
+      word-wrap: normal;
+      overflow-wrap: normal;
+      margin: 0rem;
+    }
+  }
+
+  &-social-media {
+    @include responsive-set("tablet-lg") {
+      justify-content: end;
+      padding-right: 0px;
+      gap: $gap-5;
+    }
+
+    @include responsive-set("mobile-xs") {
+      justify-content: center;
+      max-width: 360px;
+      margin: 6.5rem auto;
+      gap: $gap-4;
+    }
+    @include responsive-set("mob-sm-to-tab-lg") {
+      justify-content: space-around;
+      max-width: 360px;
+      margin: 6.5rem auto;
+      gap: $gap-4;
+    }
+    display: flex;
+    margin: 0rem;
+  }
+
+  &-social-media {
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0 0 1.25rem;
+    }
+  }
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+.navbar-toggler {
+  font-size: medium !important;
+}
+.header-link {
+  &-container {
+    position: relative;
+
+    align-self: flex-end;
+    align-items: end;
+    margin-left: auto;
+    display: flex;
+    justify-content: end;
+    margin-top: 0.5rem;
+  }
+  &-search {
+    padding: 5px 8px;
+    &-color {
+      color: $regalBlue;
+      @include responsive-set("tablet-lg") {
+        @include typography($font-md, 24px, 400);
+      }
+    }
+    @include responsive-set("tablet-lg") {
+      padding: 14px 22px;
+      padding-right: 0px;
+    }
+  }
+}
+.dropdown-header {
+  .dropdown-toggle::after {
+    content: none !important ;
+  }
+  .dropdown {
+    position: unset;
+
+    &-menu {
+      background: $regalBlue;
+      width: 100%;
+      color: $white;
+
+      .container {
+        max-width: none;
+      }
+    }
+
+    &-menu[data-bs-popper] {
+      @include responsive-set("tablet-lg") {
+        min-width: 93vw;
+        left: -16rem;
+      }
+      @include responsive-set("laptop-xl") {
+        min-width: 96vw;
+        left: -16rem;
+      }
+      @include responsive-set("laptop-xxl") {
+        min-width: 1300px;
+        left: -9rem;
+      }
+      @include responsive-set("wide-screens") {
+        min-width: 1500px;
+        left: -4rem;
+      }
+
+      padding: 55px 30px;
+      min-width: 90vw;
+      margin-top: -1px;
+      border: none;
+      border-radius: 0px;
+    }
+    &-menu > a {
+      @include linkColorSet($white);
+      width: max-content;
+    }
+    &-menu > a:hover {
+      background: none !important;
+      @include linkColorSet($disasterPacificBlue);
+    }
+    &-toggle-button {
+      font-family: "proxima-nova";
+      color: $regalBlue;
+      text-wrap: nowrap;
+      cursor: pointer;
+      padding: 5px 8px;
+      width: max-content;
+      @include responsive-set("tablet-lg") {
+        @include typography(map.get($fontSize, "18"), 24px, 400);
+        padding: 14px 22px;
+      }
+    }
+    &-toggle-bg {
+      background-color: $regalBlue;
+      color: $white;
+      border-radius: 3px;
+    }
+
+    &-cross-icon__wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-cross-icon {
+      cursor: pointer;
+    }
+
+    &-item {
+      padding: 0 0 1rem;
+      text-wrap: wrap;
+      @extend .typo-medium-text;
+    }
+
+    &-teaser {
+      position: relative;
+      height: 370px;
+      @include responsive-set("tab-lg-to-lapt-xl") {
+        height: 350px;
+      }
+      img {
+        z-index: 0;
+        pointer-events: none;
+        position: absolute;
+        opacity: 0.2;
+        max-width: 90%;
+        height: 370px;
+        @include responsive-set("tab-lg-to-lapt-xl") {
+          height: 350px;
+        }
+      }
+      &__title {
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 1.75rem 0 2rem;
+        @include responsive-set("tab-lg-to-lapt-xl") {
+          margin: 1.75rem 0 1.75rem;
+        }
+      }
+      &__items {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3rem 1rem;
+        max-width: 90%;
+        @include responsive-set("tab-lg-to-lapt-xl") {
+          padding: 2rem 1rem;
+        }
+      }
+      &__cta {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+      }
+    }
+  }
+}
+
+.d {
+  &-desk {
+    display: none;
+    @include responsive-set("tablet-lg") {
+      display: block;
+    }
+  }
+  &-mob {
+    display: block;
+    @include responsive-set("tablet-lg") {
+      display: none;
+    }
+  }
+}
+
+.mega-menu-mobile {
+  padding: 5rem 30px 3rem;
+  min-height: 100vh;
+  @include responsive-set("upto-tablet-lg") {
+    padding: 3rem 1.25rem;
+  }
+}
+.max-width-set {
+  @include responsive-set("tab-lg-to-lapt-xxl") {
+    margin: 0rem 3rem;
+  }
+
+  @include responsive-set("lapt-xxl-to-wide-screen") {
+    margin: 0rem 4rem;
+  }
+
+  @include responsive-set("wide-screens") {
+    max-width: 1640px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,28 @@
+@use "sass:map";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.partner-logo {
+  background-color: $narvik;
+  padding: 1rem 0 8rem;
+
+  @include responsive-set("mobile-xs") {
+    padding: 1rem 0.5rem 6rem;
+  }
+
+  &__title {
+    @extend .font-proxima;
+  }
+  &__card {
+    border-radius: 16px;
+    background-color: $white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 230px;
+  }
+}

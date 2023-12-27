@@ -1,0 +1,19 @@
+@use "sass:map";
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/all.utilities.scss";
+@import "../../../scss/components/typography.scss";
+
+.flexible-column{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  overflow-x: hidden;
+
+  &-title{
+    @extend .typo-h1;
+    margin-bottom: 34px;
+    color: $regalBlue
+  }
+}

@@ -1,0 +1,261 @@
+@use "sass:map";
+
+.footer {
+}
+
+.pre-footer {
+  background-color: $lightCream;
+
+  @include responsive-set("upto-tablet-md") {
+    padding: 0rem 1.5rem;
+  }
+  @include responsive-set("tab-md-to-lapt-xl") {
+    padding: 3rem 0.2rem 0.75rem;
+  }
+  @include responsive-set("laptop-xl") {
+    padding: 2rem 0rem 5rem;
+  }
+
+  .container {
+    @include responsive-set("upto-tablet-md") {
+      max-width: 520px !important;
+    }
+    @include responsive-set("tab-md-to-tab-lg") {
+      max-width: 760px !important;
+    }
+    @include responsive-set("tab-lg-to-lapt-xl") {
+      max-width: 1000px !important;
+    }
+    @include responsive-set("laptop-xl") {
+      max-width: 1200px !important;
+    }
+    @include responsive-set("laptop-xxl") {
+      max-width: 1500px !important;
+    }
+    @include responsive-set("wide-screens") {
+      max-width: 1845px !important;
+    }
+  }
+
+  .row > div {
+    @include responsive-set("upto-tablet-md") {
+      border-bottom: 1px solid #d5d9d7;
+      padding: 0;
+    }
+
+    @include responsive-set("laptop-xl") {
+      border-right: 1px solid #d5d9d7;
+    }
+  }
+
+  .row > div:last-of-type {
+    border-right: none;
+    border-bottom: none;
+  }
+  .row > div:first-of-type {
+    @include responsive-set("tab-md-to-lapt-xl") {
+      @include vertical-divider(#d5d9d7, null);
+    }
+  }
+
+  .content-wrapper {
+    margin: 0 auto;
+    color: $regalBlue;
+
+    @include responsive-set("upto-tablet-lg") {
+      padding: 2rem 0;
+    }
+
+    @include responsive-set("tab-md-to-lapt-xl") {
+      padding: 0rem 0rem 3rem 0;
+      max-width: 88%;
+    }
+
+    @include responsive-set("laptop-xl") {
+      max-width: 80%;
+    }
+    @include responsive-set("laptop-xxl") {
+      max-width: 70%;
+    }
+    @include responsive-set("wide-screens") {
+      max-width: 64%;
+    }
+  }
+}
+
+.main-footer {
+  background-color: $regalBlue;
+  padding: 5rem 0rem;
+
+  @include responsive-set("upto-tablet-md") {
+    padding: 4rem 8px 3rem;
+  }
+
+  @include responsive-set("tab-md-to-lapt-xl") {
+    padding: 4rem 0 3rem;
+  }
+
+  @include responsive-set("laptop-xl") {
+    padding: 5rem 0;
+  }
+
+  &__menu-wrapper {
+    @include responsive-set("tab-md-to-lapt-xl") {
+      padding: 0;
+    }
+  }
+
+  a {
+    @extend .white-link;
+  }
+
+  &__menu {
+    margin: 4rem auto 4rem;
+
+    @include responsive-set("upto-tablet-md") {
+      @include horizontal-divider-bottom($kashmirBlue, null);
+    }
+
+    @include responsive-set("tab-md-to-lapt-xl") {
+      @include vertical-divider($kashmirBlue, null);
+    }
+    @include responsive-set("laptop-xl") {
+      padding: 0 0 3rem 0;
+      margin: 4rem auto 1rem;
+
+      @include horizontal-divider-bottom($kashmirBlue, null);
+    }
+
+    @include responsive-set("upto-laptop-xl") {
+      margin: 3rem auto 2rem;
+    }
+    ul {
+      @include responsive-set("upto-laptop-xl") {
+        flex-direction: column;
+        text-align: center;
+      }
+      @include responsive-set("laptop-xxl") {
+        max-width: 85%;
+        margin: 0 auto;
+      }
+
+      @include responsive-set("wide-screens") {
+        max-width: 65%;
+        margin: 0 auto 1rem;
+      }
+
+      a {
+        @include responsive-set("upto-laptop-xl") {
+          margin-bottom: 1rem;
+        }
+      }
+      padding-left: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    li {
+      @include list-clear;
+      @include responsive-set("upto-laptop-xl") {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__bottom {
+    padding-top: 3rem;
+
+    @include responsive-set("upto-tablet-md") {
+      padding-top: 0;
+    }
+    @include responsive-set("tab-md-to-lapt-xl") {
+      padding-top: 5rem;
+    }
+
+    @include responsive-set("upto-laptop-xl") {
+      text-align: center;
+    }
+
+    .footer-links {
+      @include typography($font-3xs, 20px, 400);
+
+      padding: 0 16px 0 0;
+      @include responsive-set("upto-laptop-xl") {
+        padding: 0 10px;
+      }
+    }
+  }
+
+  &__bottom > div {
+    @include responsive-set("upto-laptop-xl") {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &__bottom > div:last-child {
+    @include responsive-set("upto-laptop-xl") {
+      margin-top: 1.25rem;
+    }
+  }
+
+  &__bottom > div:nth-child(2) {
+    text-align: center;
+  }
+
+  &__bottom > div:last-child {
+    text-align: right;
+    @include responsive-set("upto-laptop-xl") {
+      text-align: center;
+    }
+  }
+}
+
+.nrc-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+
+  @include responsive-set("upto-tablet-md") {
+    max-width: 161px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    p {
+      width: 100%;
+    }
+  }
+
+  @include responsive-set("tab-md-to-lapt-xl") {
+    flex-direction: row;
+  }
+}
+
+.copyright-icon {
+  @include responsive-set("mobile-xs") {
+    margin-right: 0.5rem;
+  }
+  color: $white;
+  margin-right: 0.35rem;
+}
+
+.idmc-logo {
+  margin: 0 auto;
+  @include responsive-set("upto-laptop-xl") {
+    width: 100%;
+    height: 42.34px;
+    object-fit: contain;
+  }
+
+  width: 199.51px;
+  height: 42.23px;
+}
+
+.nrc-logo {
+  @include responsive-set("upto-laptop-xl") {
+    width: 167.18px;
+    height: 42.25px;
+    margin-top: 1rem;
+  }
+  width: 245.37px;
+  height: 62.34px;
+}

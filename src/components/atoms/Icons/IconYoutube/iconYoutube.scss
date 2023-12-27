@@ -1,0 +1,42 @@
+@import "../../../../scss/all.variables.scss";
+
+.icon-yt-primary{
+  path{
+    fill: $regalBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-yt-secondary{
+  path{
+    fill: $disasterPacificBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $regalBlue;
+    }
+  }
+}
+.icon-yt-white{
+  path{
+    fill: $white;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-yt-gray{
+  path{
+    fill: $regentGrey;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}

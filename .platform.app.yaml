@@ -1,0 +1,145 @@
+# The name of this app. Must be unique within a project.
+name: gatsby
+
+type: 'nodejs:20'
+
+variables:
+    env:
+        NODE_OPTIONS: --max-old-space-size=1536
+        GENERATED_VARS: 'deploy/platformsh.environment'
+
+size: L
+
+resources:
+    base_memory: 1024
+    memory_ratio: 1024
+
+dependencies:
+    nodejs:
+        # yarn: "1.22.17"
+        pm2: "5.3.0"
+
+hooks:
+    post_deploy: |
+        # Verify the connection to the backend can be made with those variables.
+        if [ -f "$GENERATED_VARS" ]; then
+            # Source environment variables, build the frontend, and start the server.
+            . $GENERATED_VARS
+        else 
+              printf "In %s, %s is not available, therefore I could not source" "web:commands:start" "${GENERATED_VARS}"
+        fi
+        # Gatsby clean on a RO-filesystem
+        echo "GATSBY POST DEPLOY: Script execution started from: ${PWD}"
+        # Clear tmp folder files.
+        echo "GATSBY CLEAN JUNK PRIOR TO BUILD: Script execution started from: ${PWD}"
+        rm -rf /tmp/core-gatsby.0-node-*
+        rm -rf .cache/* && rm -rf public/*
+        npm run build -- --no-color
+        ( echo "GATSBY post build Junk cleanup begins in 30 sec" && sleep 30; rm -rf /tmp/core-gatsby.0-node-* ) &
+
+web:
+    commands:
+        start: |
+            # npm run serve -- -p $PORT --no-color
+
+            if [ -f "$GENERATED_VARS" ]; then
+                # Source environment variables, build the frontend, and start the server.
+                . $GENERATED_VARS            
+            else 
+              printf "In %s, %s is not available, therefore I could not source" "web:commands:start" "${GENERATED_VARS}"
+            fi
+            APP=$(cat package.json | jq -r '.name')
+            pm2 start npm --no-daemon --watch --name $APP -- run serve -- -p $PORT --no-color
+            #pm2 start npm --no-daemon --watch --name $APP -- run develop -- -p $PORT --no-color
+
+
+
+            # Maybe since we're foregoing the first deploy, yarn start is good enough.
+            # if [ -f "$GENERATED_VARS" ]; then
+            #     # Source environment variables, build the frontend, and start the server.
+            #     # . $GENERATED_VARS
+            #     npm run clean
+            #     npm run build
+            #     npm run serve
+            #     # APP=$(cat package.json | jq -r '.name')
+            #     # pm2 start npm --no-daemon --watch --name $APP -- preview -- -p $PORT
+            # else
+            #     # On the first deploy, display next steps page.
+            #     node first_deploy.js
+            # fi            
+
+disk: 8192
+
+mounts:
+    /.cache:
+        source: local
+        source_path: 'cache'
+    /.config:
+        source: local
+        source_path: 'config'
+    /.pm2:
+        source: local
+        source_path: 'pm2'
+    public:
+        source: local
+        source_path: 'public'
+    deploy:
+        source: service
+        service: files
+        source_path: deploy
+
+crons:
+    gatsby:
+        spec: '*/30 * * * *'
+        commands:
+            start: |
+                # Verify the connection to the backend can be made with those variables.
+                if [ -f "$GENERATED_VARS" ]; then
+                    # Source environment variables, build the frontend, and start the server.
+                    . $GENERATED_VARS
+                else 
+                    printf "In %s, %s is not available, therefore I could not source" "web:commands:start" "${GENERATED_VARS}"
+                fi
+                echo "GATSBY CRON: Script execution started from: ${PWD}"
+                echo "GATSBY CLEAN JUNK PRIOR TO BUILD: Script execution started from: ${PWD}"
+                rm -rf /tmp/core-gatsby.0-node-*
+
+# Runtime Operation to trigger gatsby tasks without depending on build process.
+# COMMAND: platform operation:run gatsby-build --project PROJECT_ID --environment ENVIRONMENT_NAME
+operations:
+    gatsby-build:
+        role: viewer
+        commands:
+            start: |
+                # Verify the connection to the backend can be made with those variables.
+                if [ -f "$GENERATED_VARS" ]; then
+                    # Source environment variables, build the frontend, and start the server.
+                    . $GENERATED_VARS
+                else 
+                    printf "In %s, %s is not available, therefore I could not source" "web:commands:start" "${GENERATED_VARS}"
+                fi
+                # Gatsby clean on a RO-filesystem
+                # rm -rf .cache/* && rm -rf public/*
+                echo "GATSBY-BUILD: Script execution started from: ${PWD}"
+                npm run build -- --no-color
+    gatsby-clean:
+        role: viewer
+        commands:
+            start: |
+                # Verify the connection to the backend can be made with those variables.
+                if [ -f "$GENERATED_VARS" ]; then
+                    # Source environment variables, build the frontend, and start the server.
+                    . $GENERATED_VARS
+                else 
+                    printf "In %s, %s is not available, therefore I could not source" "web:commands:start" "${GENERATED_VARS}"
+                fi
+                # Gatsby clean
+                echo "GATSBY-CLEAN: Script execution started from: ${PWD}"
+                npm run clean
+    gatsby-clean-tmp-junk:
+        role: viewer
+        commands:
+            start: |
+                # clear tmp folder files.
+                echo "GATSBY CLEAN JUNK: Script execution started from: ${PWD}"
+                rm -rf /tmp/core-gatsby.0-node-*

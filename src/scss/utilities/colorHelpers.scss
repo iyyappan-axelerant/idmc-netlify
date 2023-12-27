@@ -1,0 +1,46 @@
+.color-white {
+  color: $white;
+}
+
+.color-regalBlue {
+  color: $regalBlue;
+}
+
+.color-disasterPacificBlue {
+  color: $disasterPacificBlue;
+}
+
+.color-nightRider {
+  color: $nightRider;
+}
+
+.bg-clr-white {
+  background-color: $white !important;
+}
+
+.bg-clr-regalBlue {
+  background-color: $regalBlue;
+}
+
+.bg-clr-blue,
+.bg-clr-disasterPacificBlue {
+  background-color: $disasterPacificBlue;
+  @extend .color-white;
+}
+
+.bg-clr-darkgrey {
+  background-color: $textDimGray;
+  @extend .color-white;
+}
+
+.bg-clr-lightgrey {
+  background-color: $narvik;
+}
+
+.bg-clr-narvik {
+  background-color: $narvik;
+}
+
+.btn-clr-lightgrey {
+  background-color: $narvik;
+}

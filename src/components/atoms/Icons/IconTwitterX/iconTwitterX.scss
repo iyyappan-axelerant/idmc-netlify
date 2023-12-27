@@ -1,0 +1,45 @@
+@import "../../../../scss/mixins.scss";
+@import "../../../../scss/all.variables.scss";
+@import "../../../../scss/components/typography";
+
+
+.icon-twitterx-primary{
+  path{
+    fill: $regalBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-twitterx-secondary{
+  path{
+    fill: $disasterPacificBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $regalBlue;
+    }
+  }
+}
+.icon-twitterx-white{
+  path{
+    fill: $white;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-twitterx-gray{
+  path{
+    fill: $regentGrey;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}

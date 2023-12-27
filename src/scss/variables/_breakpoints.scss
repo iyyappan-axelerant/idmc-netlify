@@ -1,0 +1,26 @@
+//! BE CAREFUL WHILE EDITING THE BREAKPOINTS BELOW, AS THEY ARE USED WIDELY.
+
+$breakpoints: (
+  "mobile-xs": "( max-width: 576px )",
+  "mobile-sm": "( min-width: 576px )",
+  "tablet-md": "( min-width: 768px )",
+  "tablet-lg": "( min-width: 992px )",
+  "laptop-xl": "( min-width: 1200px )", //use this largely for designing LAPTOP designs with accordance to Bootstrap Cols.
+  "laptop-xxl": "( min-width: 1400px )",
+  "wide-screens": "( min-width: 1800px )",
+
+  "tab-md-to-tab-lg": "( min-width: 768px ) and ( max-width: 991px )",
+  "tab-md-to-lapt-xl": "( min-width: 768px ) and ( max-width: 1199px )", //use this largely for designing TABLET designs with accordance to Bootstrap Cols.
+  "tab-md-to-lapt-xxl": "( min-width: 768px ) and ( max-width: 1399px )",
+
+  "upto-mobile-sm": "( min-width: 0px ) and ( max-width: 575px )",
+  "mob-sm-to-tab-md": "( min-width: 576px ) and ( max-width: 767px )",
+  "mob-sm-to-tab-lg": "( min-width: 576px ) and ( max-width: 991px )",
+  "tab-lg-to-lapt-xl": "( min-width: 992px ) and ( max-width: 1199px )",
+  "tab-lg-to-lapt-xxl": "( min-width: 992px ) and ( max-width: 1399px )",
+  "lapt-xxl-to-wide-screen": "( min-width: 1400px ) and ( max-width: 1799px )",
+
+  "upto-tablet-md": "( min-width: 0px ) and ( max-width: 767px )", //use this largely for designing MOBILE designs with accordance to Bootstrap Cols.
+  "upto-tablet-lg": "( min-width: 0px ) and ( max-width: 991px )",
+  "upto-laptop-xl": "( min-width: 0px ) and ( max-width: 1199px )",
+) !default;

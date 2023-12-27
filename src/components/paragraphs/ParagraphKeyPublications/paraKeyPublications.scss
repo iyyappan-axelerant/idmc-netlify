@@ -1,0 +1,11 @@
+@import "../../../scss/mixins.scss";
+@import "../../../scss/all.variables.scss";
+@import "../../../scss/utilities/miscellaneous.scss";
+
+.para-key-publications {
+  padding: 0 3.3rem 4.5rem 3.3rem;
+
+  @include responsive-set("upto-tablet-md") {
+    padding: 0 8px 4rem 8px;
+  }
+}

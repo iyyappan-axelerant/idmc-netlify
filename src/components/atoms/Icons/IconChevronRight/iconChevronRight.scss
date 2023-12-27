@@ -1,0 +1,42 @@
+@import "../../../../scss/all.variables.scss";
+
+.icon-chevron-right-primary{
+  path{
+    fill: $regalBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-chevron-right-secondary{
+  path{
+    fill: $disasterPacificBlue;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $regalBlue;
+    }
+  }
+}
+.icon-chevron-right-white{
+  path{
+    fill: $white;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
+.icon-chevron-right-gray{
+  path{
+    fill: $regentGrey;
+  }
+  &.has-hover:hover{
+    path{
+      fill: $disasterPacificBlue;
+    }
+  }
+}
