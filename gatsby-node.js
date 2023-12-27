@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allNodeExpertOpinion(limit: 5, sort: { changed: DESC }) {
+      allNodeExpertOpinion(sort: { changed: DESC }, filter: {created: {gt: $gt}}) {
         edges {
           node {
             id
@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allNodePage(limit: 8, sort: { changed: DESC }) {
+      allNodePage(sort: { changed: DESC }) {
         edges {
           node {
             id
@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allNodeCountryProfile(limit: 2, sort: { changed: DESC }) {
+      allNodeCountryProfile(sort: { changed: DESC }) {
         edges {
           node {
             id
@@ -68,7 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allNodeEvents(limit: 5, sort: { changed: DESC }) {
+      allNodeEvents(sort: { changed: DESC }) {
         edges {
           node {
             id
@@ -78,7 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allNodePartnerSpotlight(limit: 5, sort: { changed: DESC }) {
+      allNodePartnerSpotlight(sort: { changed: DESC }) {
         edges {
           node {
             id
