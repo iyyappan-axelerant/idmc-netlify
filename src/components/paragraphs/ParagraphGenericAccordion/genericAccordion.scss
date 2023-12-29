@@ -37,4 +37,16 @@
       }
     }
   }
+
+  .accordion-button:not(.collapsed){
+    color: $disasterPacificBlue;
+  }
+}
+
+.container.flexible-column{
+  .generic-accordion{
+    &.container{
+      padding: 0!important;
+    }
+  }
 }

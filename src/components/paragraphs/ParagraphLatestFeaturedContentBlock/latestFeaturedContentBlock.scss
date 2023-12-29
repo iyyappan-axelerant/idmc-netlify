@@ -48,6 +48,13 @@
     &-author-thumb {
       border-radius: 50px;
       overflow: hidden;
+      &-default{
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        background-color: $narvik;
+        padding: 8px;
+      }
     }
     &-details {
       flex: 1;
@@ -70,6 +77,7 @@
         align-items: center;
         gap: 27px;
         margin-bottom: 20px;
+        flex-wrap: wrap;
         &-type {
           @extend .font-proxima;
           font-weight: bold;
@@ -94,19 +102,11 @@
 
       &-authors {
         display: flex;
+        flex-wrap: wrap;
         list-style: none;
         flex-direction: row;
         gap: 24px;
         padding: 0;
-        li {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 16px;
-          @extend .typo-small-text;
-          @extend .font-proxima;
-        }
       }
       &-tags {
         text-overflow: ellipsis;

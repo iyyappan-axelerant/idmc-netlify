@@ -17,6 +17,8 @@ import { ParagraphLatestFeaturedContentBlock } from "../components/paragraphs/Pa
 import { ParagraphNodePublication } from "../components/paragraphs/ParagraphNodePublication";
 import { ParagraphMediaBeside } from "../components/paragraphs/ParagraphMediaBeside";
 import { ParagraphNodeShorthand } from "../components/paragraphs/ParagraphNodeShorthand";
+import { ParagraphNodeEvents } from "../components/paragraphs/ParagraphNodeEvents";
+import { ParagraphNodeCountryProfile } from "../components/paragraphs/ParagraphNodeCountryProfile";
 import { ParagraphCarouselSlider } from "../components/paragraphs/ParagraphCarouselSlider";
 import { ParagraphGenericAccordion } from "../components/paragraphs/ParagraphGenericAccordion";
 import ParagraphTabComponent from "../components/paragraphs/ParagraphTabComponent";
@@ -41,6 +43,8 @@ const components = {
   node__publications: ParagraphNodePublication,
   paragraph__media_beside_content_block: ParagraphMediaBeside,
   node__shorthand: ParagraphNodeShorthand,
+  node__events: ParagraphNodeEvents,
+  node__country_profile: ParagraphNodeCountryProfile,
   paragraph__carousel_slider: ParagraphCarouselSlider,
   paragraph__generic_accordion: ParagraphGenericAccordion,
   paragraph__tab_component: ParagraphTabComponent,

@@ -28,14 +28,23 @@ export const ParagraphDepartmentBlockPeople = ({ node }) => {
           {field_department_peoples?.map((item, index) => (
             <div key={index} className="col-lg-4 col-sm-6 col-xs-12">
               <div className="dept-people-card">
-                <GatsbyImage
-                  loading="lazy"
-                  className="dept-people-card-img"
-                  image={getImage(
-                    item?.relationships?.field_department_people_icon
-                  )}
-                  alt={item?.field_department_people_name}
-                />
+                {
+                  item?.relationships?.field_department_people_icon ? (
+                    <GatsbyImage
+                      loading="lazy"className="dept-people-card-img"
+                      image={getImage(
+                        item?.relationships?.field_department_people_icon
+                      )}
+                      alt={item?.field_department_people_name}
+                    />
+                  ) : (
+                    <div className="gatsby-image-wrapper gatsby-image-wrapper-default dept-people-card-img bg-clr-lightgrey ">
+                      <div>
+                        <img src="/images/avatar.png" alt="avatar"/>
+                      </div>
+                    </div>
+                  )
+                }
                 <h3 className="dept-people-card-title">
                   {item?.field_department_people_name}
                 </h3>
@@ -92,14 +101,22 @@ export const ParagraphDepartmentBlockPeople = ({ node }) => {
         <Modal.Header closeButton className="dept-people-modal-header">
           <div className="dept-people-modal-header-inner">
             <div>
-              <GatsbyImage
-                loading="lazy"
-                className="dept-people-modal-img"
-                image={getImage(
-                  detail?.data?.relationships?.field_department_people_icon
-                )}
-                alt={detail?.data?.field_department_people_name}
-              />
+              {
+                detail?.data?.relationships?.field_department_people_icon ? (
+                  <GatsbyImage
+                    loading="lazy"
+                    className="dept-people-modal-img"
+                    image={getImage(
+                      detail?.data?.relationships?.field_department_people_icon
+                    )}
+                    alt={detail?.data?.field_department_people_name}
+                  />
+                ) : (
+                  <div className="gatsby-image-wrapper-default bg-clr-lightgrey dept-people-modal-img">
+                    <img src="/images/avatar.png" alt="avatar"/>
+                  </div>
+                )
+              }
             </div>
             <div className="dept-people-modal-header-right">
               <h2 className="dept-people-modal-title">

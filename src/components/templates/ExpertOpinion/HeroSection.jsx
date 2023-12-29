@@ -1,7 +1,7 @@
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import { Container } from "react-bootstrap";
 import ExtractRichText from "../../molecules/ExtractRichText";
+import Author from "../../molecules/Author";
 
 const HeroSection = ({ data }) => {
   return (
@@ -44,27 +44,17 @@ const HeroSection = ({ data }) => {
             } `}
           >
             {data?.relationships?.field_authors?.map((item, key) => {
-              const image = getImage(
-                item?.relationships?.field_author_image?.relationships
-                  ?.field_media_image
-              );
               return (
                 <>
                   <div key={key} className="my-1 me-1">
                     <a className="hero-author-body" href={item?.path?.alias}>
-                      {image && (
-                        <GatsbyImage loading="lazy" image={image} alt="author"></GatsbyImage>
-                      )}
-                      <div>
-                        {item?.name && (
-                          <div className="hero-author-title">{item?.name}</div>
-                        )}
-                        {item?.field_designation && (
-                          <div className="hero-author-designation">
-                            {item?.field_designation}
-                          </div>
-                        )}
-                      </div>
+                      <Author
+                        name={item?.name}
+                        designation={item?.field_designation}
+                        image={item?.relationships?.field_author_image?.relationships?.field_media_image}
+                        nameClasses="hero-author-title"
+                        designationClasses="hero-author-designation"
+                      />
                     </a>
                     {key < data?.relationships?.field_authors?.length - 1 && (
                       <div className="divide"></div>

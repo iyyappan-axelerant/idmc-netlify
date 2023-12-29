@@ -17,6 +17,11 @@
 
   table{
     float: none!important;
+    img.w-100{
+      padding: 12px;
+      border-radius: 50%;
+      transform: translateX(-12px);
+    }
   }
 }
 

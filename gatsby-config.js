@@ -120,6 +120,7 @@ module.exports = {
                   fields {
                     slug
                   }
+                  field_published
                   relationships {
                     field_product_tags {
                       name
@@ -155,6 +156,7 @@ module.exports = {
           "id",
           "title",
           "type",
+          "field_published",
           "field_country",
           "field_region",
           "field_theme",
@@ -174,6 +176,7 @@ module.exports = {
             field_image: edge?.node?.relationships?.field_image,
             field_product_tags: edge?.node?.relationships?.field_product_tags,
             slug: edge?.node?.fields,
+            field_published: edge?.node?.field_published,
           })),
       },
     },
@@ -190,6 +193,7 @@ module.exports = {
                 node {
                   id
                   title
+                  field_published
                   node_type {
                     drupal_internal__target_id
                   }
@@ -214,6 +218,15 @@ module.exports = {
                     field_authors {
                       name
                       id
+                      relationships {
+                        field_author_image {
+                          relationships {
+                            field_media_image {
+                              gatsbyImage(width: 58, height: 58)
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                   fields {
@@ -237,6 +250,7 @@ module.exports = {
           "field_product_tags",
           "field_authors",
           "slug",
+          "field_published",
         ],
 
         normalizer: ({ data }) =>
@@ -250,6 +264,7 @@ module.exports = {
             field_product_tags: edge?.node?.relationships?.field_product_tags,
             field_authors: edge?.node?.relationships?.field_authors,
             slug: edge?.node?.fields,
+            field_published: edge?.node?.field_published,
           })),
       },
     },
@@ -262,11 +277,12 @@ module.exports = {
         engineOptions: "speed",
         query: `
           {
-            allNodeShorthand {
+            allNodeShorthand(sort: { changed: DESC }) {
               edges {
                 node {
                   id
                   title
+                  field_published
                   field_iframe_url
                   node_type {
                     drupal_internal__target_id
@@ -306,6 +322,7 @@ module.exports = {
           "field_region",
           "field_theme",
           "slug",
+          "field_published",
         ],
 
         normalizer: ({ data }) =>
@@ -317,6 +334,7 @@ module.exports = {
             field_region: edge?.node?.relationships?.field_region,
             field_theme: edge?.node?.relationships?.field_theme,
             slug: edge?.node?.field_iframe_url,
+            field_published: edge?.node?.field_published,
           })),
       },
     },
@@ -329,7 +347,7 @@ module.exports = {
         engineOptions: "speed",
         query: `
           {
-            allNodeEvents {
+            allNodeEvents(sort: { changed: DESC }) {
               edges {
                 node {
                   id
@@ -337,6 +355,8 @@ module.exports = {
                   node_type {
                     drupal_internal__target_id
                   }
+                  field_published
+                  field_event_place
                   relationships {
                     field_product_tags {
                       name
@@ -372,6 +392,8 @@ module.exports = {
           "id",
           "title",
           "type",
+          "field_published",
+          "field_event_place",
           "field_country",
           "field_region",
           "field_theme",
@@ -383,6 +405,8 @@ module.exports = {
           data.allNodeEvents.edges.map((edge) => ({
             id: edge?.node.id,
             title: edge?.node.title,
+            field_published:  edge?.node?.field_published,
+            field_event_place: edge?.node?.field_event_place,
             type: edge?.node?.node_type?.drupal_internal__target_id,
             field_country: edge?.node?.relationships?.field_country,
             field_region: edge?.node?.relationships?.field_region,
@@ -401,11 +425,12 @@ module.exports = {
         engineOptions: "speed",
         query: `
           {
-            allNodePartnerSpotlight {
+            allNodePartnerSpotlight(sort: { changed: DESC }) {
               edges {
                 node {
                   id
                   title
+                  field_published
                   node_type {
                     drupal_internal__target_id
                   }
@@ -438,6 +463,7 @@ module.exports = {
           "field_theme",
           "field_image",
           "field_product_tags",
+          "field_published",
         ],
 
         normalizer: ({ data }) =>
@@ -448,6 +474,7 @@ module.exports = {
             field_theme: edge?.node?.relationships?.field_theme,
             field_image: edge?.node?.relationships?.field_metatag_image,
             field_product_tags: edge?.node?.relationships?.field_product_tags,
+            field_published: edge?.node?.field_published,
           })),
       },
     },
@@ -459,7 +486,7 @@ module.exports = {
         engineOptions: "speed",
         query: `
           {
-            allNodeGoodPractice {
+            allNodeGoodPractice(sort: { changed: DESC }) {
               edges {
                 node {
                   id
@@ -470,6 +497,7 @@ module.exports = {
                   fields {
                     slug
                   }
+                  field_time_frame
                   relationships {
                     field_product_tags {
                       name
@@ -495,7 +523,7 @@ module.exports = {
                       relationships {
                         field_media_image {
                           url
-                          gatsbyImage(width: 10)
+                          gatsbyImage(width: 500, height: 500)
                         }
                       }
                     }
@@ -512,6 +540,7 @@ module.exports = {
           "id",
           "title",
           "type",
+          "field_time_frame",
           "field_theme",
           "field_image",
           "field_product_tags",
@@ -535,6 +564,7 @@ module.exports = {
               edge?.node?.relationships?.field_gp_thumbnail_image?.relationships
                 ?.field_media_image,
             field_product_tags: edge?.node?.relationships?.field_product_tags,
+            field_time_frame: edge?.node?.field_time_frame,
           })),
       },
     },
@@ -551,6 +581,7 @@ module.exports = {
                 node {
                   id
                   title
+                  field_published
                   node_type {
                     drupal_internal__target_id
                   }
@@ -602,6 +633,7 @@ module.exports = {
           "field_country",
           "field_authors",
           "slug",
+          "field_published",
         ],
 
         normalizer: ({ data }) =>
@@ -618,6 +650,52 @@ module.exports = {
               edge?.node?.relationships?.field_gp_thumbnail_image?.relationships
                 ?.field_media_image,
             field_product_tags: edge?.node?.relationships?.field_product_tags,
+            field_published: edge?.node?.field_published,
+          })),
+      },
+    },
+    {
+      resolve: "gatsby-plugin-local-search",
+      options: {
+        name: "countryProfile",
+        engine: "flexsearch",
+        engineOptions: "speed",
+        query: `
+          {
+            allNodeCountryProfile {
+              edges {
+                node {
+                  title
+                  id
+                  relationships {
+                    field_cover_image {
+                      gatsbyImage(width: 10)
+                      url
+                    }
+                  }
+                  node_type {
+                    drupal_internal__target_id
+                  }
+                  fields {
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        `,
+
+        ref: "id",
+        index: ["title"],
+        store: ["id", "title", "type", "slug", "field_image"],
+
+        normalizer: ({ data }) =>
+          data.allNodeCountryProfile.edges.map((edge) => ({
+            id: edge?.node.id,
+            title: edge?.node.title,
+            type: edge?.node?.node_type?.drupal_internal__target_id,
+            slug: edge?.node?.fields,
+            field_image: edge?.node?.relationships?.field_cover_image,
           })),
       },
     },

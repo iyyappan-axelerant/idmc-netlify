@@ -7,7 +7,7 @@ export const ParagraphGenericAccordion = ({ node }) => {
   const {relationships} = node;
   const {field_generic_accordion_items} = relationships ?? {}
   return (
-    <div className="generic-accordion">
+    <div className="generic-accordion container">
       <Accordion defaultActiveKey="0">
         {
           field_generic_accordion_items?.map((item, index) => (

@@ -23,12 +23,14 @@
   &-card {
     margin-bottom: 94px;
 
-    &-img.gatsby-image-wrapper {
+    &-img.gatsby-image-wrapper, &-img, .gatsby-image-wrapper-default {
       position: relative;
       height: 0;
       width: 100%;
       padding-top: calc(100% / 0.935);
       margin-bottom: 38px;
+      border-radius: 10px;
+      overflow: hidden;
       img {
         border-radius: 10px;
         object-fit: cover !important;
@@ -102,9 +104,11 @@
         max-width: 360px;
       }
     }
-    &-img.gatsby-image-wrapper {
+    &-img.gatsby-image-wrapper, &-img, .gatsby-image-wrapper-default{
       max-width: 320px;
       max-height: 250px;
+      border-radius: 10px;
+      overflow: hidden;
       img {
         max-width: 320px;
         max-height: 250px;

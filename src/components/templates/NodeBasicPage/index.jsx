@@ -68,6 +68,7 @@ export const pageQuery = graphql`
           ...ParagraphCarouselSlider
           ...ParagraphTabComponent
           ...ParagraphCountryMap
+          ...ParagraphGenericAccordion
         }
       }
     }

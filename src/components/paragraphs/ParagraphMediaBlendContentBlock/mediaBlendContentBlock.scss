@@ -125,3 +125,9 @@
 .media-blend-root .gatsby-image-wrapper [data-main-image] {
   object-fit: cover !important;
 }
+
+.flexible-column-3, .flexible-column-4{
+  .media-blend-root{
+    height: fit-content!important;
+  }
+}

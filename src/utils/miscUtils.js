@@ -19,7 +19,7 @@ export const getPublicationType = (machineName) => {
   } else return "";
 };
 
-export const getReactSelectFormattedOptions = (rawArray) => {
+export const getFormattedOptionsForReactSelect = (rawArray) => {
   return rawArray?.edges?.map((array) => {
     return { label: array.node?.name, value: array?.node?.id };
   });

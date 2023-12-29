@@ -6,7 +6,7 @@ import './flexibleColumn.scss';
 const colMap = {
   1: '',
   2: 'col-md-12 col-lg-6',
-  3: 'col-md-6 col-lg-4',
+  3: 'col-md-12 col-lg-4',
   4: 'col-md-6 col-lg-3',
 }
 export const ParagraphFlexibleColumn = ({ node }) => {
@@ -16,7 +16,7 @@ export const ParagraphFlexibleColumn = ({ node }) => {
   if(length === 0) return null;
 
   return (
-    <div className="flexible-column container general-container my-5rem">
+    <div className={`flexible-column container general-container my-5rem flexible-column-${length}`}>
       {
         Boolean(node?.field_component_title) && (
           <h1 className="flexible-column-title">{node?.field_component_title}</h1>

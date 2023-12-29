@@ -128,6 +128,7 @@
   display: flex;
   gap: 0.75rem;
   margin-top: 3rem;
+  flex-wrap: wrap;
 
   @include responsive-set("upto-tablet-md") {
     flex-direction: column;
@@ -176,6 +177,12 @@
   &__control {
     border: 1px solid $disasterPacificBlue !important;
   }
+
+  &__option:active,
+  &__option:focus {
+    background-color: $pattensBlue;
+  }
+
   &__multi-value {
     background-color: $disasterPacificBlue !important;
     color: $white !important;
@@ -188,6 +195,75 @@
         $amount: 5%
       ) !important;
       color: $white !important;
+    }
+  }
+}
+
+.text-align-right{
+  text-align: right;
+}
+
+.text-align-justify{
+  text-align: justify;
+}
+.table{
+  max-width: 100%;
+}
+
+.ct-container-body{
+  img{
+    max-width: 100%;
+  }
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+
+  input {
+    min-height: 40px;
+    padding: 2px 8px;
+    border-radius: 3px;
+
+    border: 1px solid $disasterPacificBlue;
+
+    &:focus-visible {
+      border: 1px solid $disasterPacificBlue;
+    }
+  }
+
+  .react-datepicker__close-icon::after {
+    background-color: transparent;
+    color: #cccccc;
+    font-size: 26px;
+    font-weight: 900;
+  }
+}
+
+
+blockquote{
+  position: relative;
+  padding: 18px 0 18px 111px;
+  margin: 32px 0; //spacing for component
+
+  @include responsive-set("upto-tablet-md") {
+    padding: 18px 0 18px 42px;
+  }
+
+  &:before{
+    content: url('/icons/quote.svg');
+  }
+
+  &:after{
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 100px;
+    width: 10px;
+    height: 100%;
+    background-color: $disasterPacificBlue;
+    @include responsive-set("upto-tablet-md") {
+      width: 7px;
     }
   }
 }

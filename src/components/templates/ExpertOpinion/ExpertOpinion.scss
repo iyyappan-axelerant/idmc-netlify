@@ -29,7 +29,7 @@
       color: $cinder;
     }
     &-title {
-      font-weight: 700;
+      font-weight: 700!important;
       margin-bottom: 3px;
       @include linkColorSet($cinder);
     }

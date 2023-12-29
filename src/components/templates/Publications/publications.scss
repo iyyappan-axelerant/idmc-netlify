@@ -32,6 +32,67 @@
     display: block;
   }
 }
-.f-left{
+.f-left {
   float: left;
+}
+.view {
+  display: flex;
+  flex-direction: column;
+  float: inline-end;
+  margin-bottom: 20px;
+  margin-top: -60px;
+  @extend .typo-paragraph;
+  & > img {
+    width: 200px;
+    @include responsive-set("upto-mobile-sm") {
+      width: auto;
+      margin-left: 4px;
+    }
+  }
+  @include responsive-set("upto-mobile-sm") {
+    flex-direction: row;
+    float: none;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+}
+
+.d-related {
+  display: block;
+  @include responsive-set("upto-mobile-sm") {
+    display: none;
+  }
+}
+.m-related {
+  display: none;
+  @include responsive-set("upto-mobile-sm") {
+    display: block;
+  }
+  margin-left: 24px;
+  margin-right: 32px;
+  .slick-slide {
+    @include responsive-set("upto-mobile-sm") {
+      padding: 0px !important;
+    }
+  }
+  .slick-dots {
+    bottom: -30px;
+  }
+  .slick-dots li button:before {
+    font-size: 7px;
+    color: $textDimGray;
+    opacity: 1;
+  }
+  .slick-dots li {
+    margin: 0;
+    width: 10px;
+  }
+
+  .slick-dots li.slick-active button:before {
+    color: $disasterPacificBlue;
+    opacity: 1;
+  }
+  .slick-dots li button {
+    padding: 0;
+  }
 }

@@ -65,10 +65,10 @@ export const ParagraphCarouselSlider = ({ node }) => {
     <>
       <Container className="general-container pb-5 mb-4 ">
         <h2 className="carousel-title px-2">{node?.field_component_title}</h2>
-        <Slider className="" {...settings}>
+        <Slider {...settings}>
           {node?.relationships?.field_carousel_item?.map((item, key) => {
             return (
-              <div key={key}>
+              <div className="custom-slider" key={key}>
                 <ContentReferenceCard
                   title={item?.field_heading}
                   linkTo={item?.field_link?.url}

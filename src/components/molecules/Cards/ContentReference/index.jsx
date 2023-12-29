@@ -1,6 +1,8 @@
 import React from "react";
 import "./contentReference.scss";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
+import Author from "../../Author";
+import { formatDate } from "../../../../hooks/formatDate";
 
 function ContentReferenceCard(props) {
   const {
@@ -17,12 +19,17 @@ function ContentReferenceCard(props) {
 
   let allTags = [];
   for (let tag in props) {
-    if (tagsToConsider?.includes(tag) && props[tag]) {
-      if (props[tag][0] && props[tag][0]?.name) {
-        allTags.push(props[tag][0]?.name);
+    if (tagsToConsider?.includes(tag)) {
+      if (props?.[tag]?.length > 0) {
+        allTags = [...allTags, props?.[tag]?.[0]?.name];
+      }
+      if (tag === "field_region" && props?.[tag]?.name) {
+        allTags?.push(props?.[tag]?.name);
       }
     }
   }
+
+  const formattedDate = formatDate(props?.fieldPublished);
 
   return (
     <div className="content-card">
@@ -40,7 +47,11 @@ function ContentReferenceCard(props) {
                 className="content-card__img"
               />
             ) : (
-              <img loading="lazy" src="/alternate-idmc.png" className="content-card__img" />
+              <img
+                loading="lazy"
+                src="/alternate-idmc.png"
+                className="content-card__img"
+              />
             )}
 
             {eyebrowText && (
@@ -53,24 +64,32 @@ function ContentReferenceCard(props) {
           {title && <h6>{title}</h6>}
 
           {/* Only one author details for now */}
-          {authorDetails && (
+          {authorDetails && authorDetails[0]?.name && (
             <div className="author-data">
-              {authorDetails[0]?.relationships?.field_author_image && (
-                <GatsbyImage
-                  loading="lazy"
-                  className="me-2"
-                  image={getImage(
-                    authorDetails[0]?.relationships?.field_author_image
-                      ?.relationships?.field_media_image?.gatsbyImage
-                  )}
-                />
-              )}
-              <p>{authorDetails[0]?.name}</p>
+              <Author
+                name={authorDetails[0]?.name}
+                image={
+                  authorDetails[0]?.relationships?.field_author_image
+                    ?.relationships?.field_media_image?.gatsbyImage
+                }
+              />
             </div>
           )}
-
+          <div className="event-date">
+            {props?.fieldPublished && !props?.fieldEventPlace && (
+              <p>{formattedDate}</p>
+            )}
+            {props?.fieldPublished && props?.fieldEventPlace && (
+              <p className="event-date__place">
+                {formattedDate}
+                {"  |  "}
+                {props?.fieldEventPlace}
+              </p>
+            )}
+            <p>{props?.fieldTimeFrame}</p>
+          </div>
           {allTags && allTags.length > 0 && (
-            <p className="tags-wrapper__tag">{allTags.join("  |  ")}</p>
+            <p className="tags-wrapper__tag">{allTags?.join("  |  ")}</p>
           )}
           {introText && (
             <div

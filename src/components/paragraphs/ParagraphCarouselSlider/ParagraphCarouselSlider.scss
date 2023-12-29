@@ -53,3 +53,11 @@
     padding-left: 10px !important;
   }
 }
+.custom-slider {
+  .content-card__img {
+    z-index: -1;
+  }
+  .content-card__eyebrow {
+    z-index: 1;
+  }
+}

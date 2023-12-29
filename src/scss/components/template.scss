@@ -291,17 +291,26 @@
 .custom-pagination {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin: 2rem auto;
   border: 1px solid $geyser;
   border-radius: 30px;
   width: fit-content;
   padding-left: 0;
+  @include responsive-set("upto-tablet-md") {
+    max-width: 100vw;
+  }
   li {
     padding: 0.8rem 1.75rem;
     list-style: none;
+    @include responsive-set("upto-tablet-md") {
+      padding: 0.5rem 0.75rem;
+    }
     a {
       color: $regentGrey !important;
       padding: 3px 6px;
+      @include responsive-set("upto-tablet-md") {
+        padding: 3px 6px;
+      }
     }
     a:hover {
       background-color: $regentGrey;

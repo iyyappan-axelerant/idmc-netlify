@@ -1,5 +1,5 @@
 import React from "react";
-import {graphql} from "gatsby";
+import {graphql, Link} from "gatsby";
 import classNames from "classnames";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import './mediaBlendContentBlock.scss';
@@ -57,13 +57,13 @@ export const ParagraphMediaBlendContentBlock = ({node}) => {
               <div className="media-blend-cta">
                 {
                   field_cta_link?.map((cta) => (
-                    <a
-                      href={cta?.field_link?.url || "/"}
+                    <Link
+                      to={cta?.field_link?.url || ""}
                       target={"_blank"}
                       className={`btn btn-${cta?.field_cta_colour}`}
                     >
                       {cta?.field_link?.title}
-                    </a>
+                    </Link>
                   ))
                 }
               </div>

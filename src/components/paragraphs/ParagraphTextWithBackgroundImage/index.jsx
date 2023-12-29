@@ -39,8 +39,8 @@ export const ParagraphTextWithBackgroundImage = ({ node }) => {
                           {item?.field_link?.title && (
                             <div key={key} className="pe-3 pb-3">
                               <a
-                                href={item?.field_link?.url || "/"}
-                                target={"_blank"}
+                                href={item?.field_link?.url || "#"}
+                                target={item?.field_link?.url ? "_blank" : ""}
                                 className={`btn btn-${item?.field_cta_colour}`}
                               >
                                 {item?.field_link?.title}

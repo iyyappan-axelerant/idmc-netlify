@@ -1,9 +1,8 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Container } from "react-bootstrap";
 import classNames from "classnames";
-
+import Author from "../../molecules/Author";
 import "./latestFeaturedContentBlock.scss";
 
 export const ParagraphLatestFeaturedContentBlock = ({ node }) => {
@@ -55,17 +54,7 @@ export const ParagraphLatestFeaturedContentBlock = ({ node }) => {
                 <ul className="lfc-content-details-authors">
                   {relationships?.field_author?.map((author) => (
                     <li>
-                      <div className="lfc-content-author-thumb">
-                        <GatsbyImage
-                          loading="lazy"
-                          image={getImage(
-                            author?.relationships?.field_author_image
-                              ?.relationships?.field_media_image
-                          )}
-                          alt={author?.name}
-                        />
-                      </div>
-                      <div>{author?.name}</div>
+                      <Author image={author?.relationships?.field_author_image?.relationships?.field_media_image} name={author?.name} />
                     </li>
                   ))}
                 </ul>

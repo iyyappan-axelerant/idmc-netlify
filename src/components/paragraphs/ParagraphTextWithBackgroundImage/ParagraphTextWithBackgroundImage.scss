@@ -27,6 +27,7 @@
   &-eyebrow {
     @extend .typo-heading-teaserBox;
     @extend .color-disasterPacificBlue;
+    font-weight: 700 !important;
   }
   &-title {
     padding-left: 0 !important;

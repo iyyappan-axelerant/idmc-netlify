@@ -111,7 +111,6 @@ export const pageQuery = graphql`
         }
       }
       field_published(formatString: "DD MMMM YYYY")
-      field_published_year
       field_event_place
     }
   }
