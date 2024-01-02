@@ -5,6 +5,7 @@ import Layout from "../../layout";
 import { Container } from "react-bootstrap";
 import { getParagraph } from "../../../utils/paragraphHelpers";
 import ExtractRichText from "../../molecules/ExtractRichText";
+import { ParagraphCarouselSlider } from "../../paragraphs/ParagraphCarouselSlider";
 
 const PartnerSpotlight = ({ data }) => {
   const paragraphs =
@@ -26,6 +27,10 @@ const PartnerSpotlight = ({ data }) => {
         )}
       </Container>
       {paragraphs}
+      <ParagraphCarouselSlider
+        data={data}
+        theme={data?.nodePartnerSpotlight?.relationships?.field_theme}
+      ></ParagraphCarouselSlider>
     </Layout>
   );
 };
@@ -60,7 +65,14 @@ export const pageQuery = graphql`
         field_metatag_image {
           url
         }
+        field_theme {
+          name
+          id
+        }
       }
+    }
+    localSearchContentTypes {
+      store
     }
   }
 `;

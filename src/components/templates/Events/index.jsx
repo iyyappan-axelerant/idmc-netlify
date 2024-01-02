@@ -7,6 +7,7 @@ import TemplateLayout from "../../molecules/TemplateLayout";
 import TemplateSidebar from "../../molecules/TemplateSidebar";
 import HeroSection from "./HeroSection";
 import { getParagraph } from "../../../utils/paragraphHelpers";
+import { ParagraphCarouselSlider } from "../../paragraphs/ParagraphCarouselSlider";
 
 const Events = ({ data }) => {
   const paragraphs =
@@ -32,6 +33,10 @@ const Events = ({ data }) => {
         </div>
       </TemplateLayout>
       <div className="pt-5">{paragraphs}</div>
+      <ParagraphCarouselSlider
+        data={data}
+        theme={data?.nodeEvents?.relationships?.field_theme}
+      ></ParagraphCarouselSlider>
     </Layout>
   );
 };
@@ -72,6 +77,7 @@ export const pageQuery = graphql`
         }
         field_theme {
           name
+          id
         }
         field_region {
           name
@@ -112,6 +118,9 @@ export const pageQuery = graphql`
       }
       field_published(formatString: "DD MMMM YYYY")
       field_event_place
+    }
+    localSearchContentTypes {
+      store
     }
   }
 `;

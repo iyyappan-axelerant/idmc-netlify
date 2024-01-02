@@ -1,17 +1,14 @@
 import { graphql } from "gatsby";
-import React, { useEffect, useState } from "react";
+import { getImage } from "gatsby-plugin-image";
+import React from "react";
 import Seo from "../../atoms/seo";
 import Layout from "../../layout";
 import TemplateLayout from "../../molecules/TemplateLayout";
 import TemplateSidebar from "../../molecules/TemplateSidebar";
 import HeroSection from "./HeroSection";
 import RelatedContent from "./RelatedContent";
-import { getImage } from "gatsby-plugin-image";
-import ContentReferenceCard from "../../molecules/Cards/ContentReference";
-import { Container, Row, Col } from "react-bootstrap";
 
 const Publications = ({ data }) => {
-  // console.log("data",data);
   const image = getImage(
     data?.nodePublications?.relationships?.field_header_image?.relationships
       ?.field_media_image
@@ -36,7 +33,10 @@ const Publications = ({ data }) => {
           )}
         </div>
       </TemplateLayout>
-      <RelatedContent data={data}></RelatedContent>
+      <RelatedContent
+        data={data}
+        theme={data?.nodePublications?.relationships?.field_theme}
+      ></RelatedContent>
     </Layout>
   );
 };
@@ -106,7 +106,7 @@ export const pageQuery = graphql`
         }
         field_theme {
           name
-          drupal_internal__tid
+          id
         }
         field_region {
           name
@@ -151,6 +151,9 @@ export const pageQuery = graphql`
       store
     }
     localSearchGoodPractice {
+      store
+    }
+    localSearchContentTypes {
       store
     }
   }

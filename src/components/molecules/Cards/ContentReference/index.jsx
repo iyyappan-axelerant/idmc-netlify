@@ -8,6 +8,7 @@ function ContentReferenceCard(props) {
   const {
     title,
     imageURL,
+    imageType,
     eyebrowText,
     authorDetails,
     linkTo,
@@ -40,7 +41,9 @@ function ContentReferenceCard(props) {
       >
         <>
           <div className="content-card__img-wrapper">
-            {imageURL ? (
+            {imageType && imageType == "url" ? (
+              <img src={imageURL} className="content-card__img" />
+            ) : imageURL ? (
               <GatsbyImage
                 loading="lazy"
                 image={getImage(imageURL)}
@@ -64,16 +67,14 @@ function ContentReferenceCard(props) {
           {title && <h6>{title}</h6>}
 
           {/* Only one author details for now */}
-          {authorDetails && authorDetails[0]?.name && (
-            <div className="author-data">
+          {authorDetails && authorDetails?.[0]?.name && (
               <Author
-                name={authorDetails[0]?.name}
+                name={authorDetails?.[0]?.name}
                 image={
-                  authorDetails[0]?.relationships?.field_author_image
+                  authorDetails?.[0]?.relationships?.field_author_image
                     ?.relationships?.field_media_image?.gatsbyImage
                 }
               />
-            </div>
           )}
           <div className="event-date">
             {props?.fieldPublished && !props?.fieldEventPlace && (

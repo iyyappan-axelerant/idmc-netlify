@@ -8,7 +8,6 @@ export const ParagraphKeyPublications = ({ node }) => {
   const paragraphs =
     node?.relationships?.field_key_publication?.map(getParagraph);
 
-  // console.log("node", node);
 
   return (
     <>
@@ -44,8 +43,9 @@ export const fragment = graphql`
         ...ParagraphNodeMediaCentre
         ...ParagraphNodePublication
         ...ParagraphNodeShorthand
-        ...ParagraphNodeCountryProfile
         ...ParagraphNodeEvents
+        ...ParagraphNodePartnerSpotlight
+        ...ParagraphNodeFeaturesIframe
       }
     }
   }

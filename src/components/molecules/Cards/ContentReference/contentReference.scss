@@ -26,6 +26,7 @@
         height: 200px;
       }
     }
+
     &__eyebrow {
       position: absolute;
       bottom: 0rem;
@@ -63,7 +64,8 @@
 
     .tags-wrapper {
       &__tag {
-        margin-top: 7px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         @include typography(map.get($fontSize, "14"), 12px, 400);
         color: $disasterPacificBlue;
       }

@@ -7,11 +7,9 @@ const HeroSection = ({ data }) => {
     <Container className="general-container p-0">
       <div className="ct-container-hero-box-l">
         <div className="eyebrow">
-          {data?.relationships?.field_product_tags?.name && (
             <p className="eyebrow-title">
-              {data?.relationships?.field_product_tags?.name?.toUpperCase()}
+              {data?.relationships?.field_product_tags?.name?.toUpperCase()|| "EVENTS"}
             </p>
-          )}
           {data?.relationships?.field_product_tags?.name &&
             data?.field_published && <span className="eyebrow-divider"></span>}
           {data?.field_published && (

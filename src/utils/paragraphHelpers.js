@@ -15,14 +15,15 @@ import { ParagraphMediaBlendContentBlock } from "../components/paragraphs/Paragr
 import { ParagraphLargeSliderContentBlock } from "../components/paragraphs/ParagraphLargeSliderContentBlock";
 import { ParagraphLatestFeaturedContentBlock } from "../components/paragraphs/ParagraphLatestFeaturedContentBlock";
 import { ParagraphNodePublication } from "../components/paragraphs/ParagraphNodePublication";
+import { ParagraphNodePartnerSpotlight } from "../components/paragraphs/ParagraphNodePartnerSpotlight";
 import { ParagraphMediaBeside } from "../components/paragraphs/ParagraphMediaBeside";
 import { ParagraphNodeShorthand } from "../components/paragraphs/ParagraphNodeShorthand";
 import { ParagraphNodeEvents } from "../components/paragraphs/ParagraphNodeEvents";
-import { ParagraphNodeCountryProfile } from "../components/paragraphs/ParagraphNodeCountryProfile";
 import { ParagraphCarouselSlider } from "../components/paragraphs/ParagraphCarouselSlider";
 import { ParagraphGenericAccordion } from "../components/paragraphs/ParagraphGenericAccordion";
 import ParagraphTabComponent from "../components/paragraphs/ParagraphTabComponent";
 import { ParagraphCountryMap } from "../components/paragraphs/ParagraphCountryMap";
+import { ParagraphNodeFeaturesIframe } from "../components/paragraphs/ParagraphNodeFeaturesIframe";
 
 const components = {
   paragraph__paragraph_text_block: ParagraphParagraphTextBlock,
@@ -34,6 +35,7 @@ const components = {
   paragraph__key_publications: ParagraphKeyPublications,
   node__expert_opinion: ParagraphNodeExpertOpinion,
   node__media_centre: ParagraphNodeMediaCentre,
+  node__partner_spotlight: ParagraphNodePartnerSpotlight,
   paragraph__slideshow: ParagraphSlideShowContentBlock,
   paragraph__text_with_background_image: ParagraphTextWithBackgroundImage,
   paragraph__flexible_column: ParagraphFlexibleColumn,
@@ -44,7 +46,7 @@ const components = {
   paragraph__media_beside_content_block: ParagraphMediaBeside,
   node__shorthand: ParagraphNodeShorthand,
   node__events: ParagraphNodeEvents,
-  node__country_profile: ParagraphNodeCountryProfile,
+  node__iframe: ParagraphNodeFeaturesIframe,
   paragraph__carousel_slider: ParagraphCarouselSlider,
   paragraph__generic_accordion: ParagraphGenericAccordion,
   paragraph__tab_component: ParagraphTabComponent,

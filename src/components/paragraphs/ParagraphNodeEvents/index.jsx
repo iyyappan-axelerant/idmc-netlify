@@ -7,7 +7,7 @@ export const ParagraphNodeEvents = ({ node }) => {
     <ContentReferenceCard
       title={node.title}
       imageURL={node?.relationships?.field_image?.gatsbyImage}
-      eyebrowText={node?.relationships?.field_product_tags?.name}
+      eyebrowText={node?.relationships?.field_product_tags?.name || "Events"}
       authorDetails={node?.relationships?.field_authors}
       field_theme={node?.relationships?.field_theme}
       field_region={node?.relationships?.field_region}

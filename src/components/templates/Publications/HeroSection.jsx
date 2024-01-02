@@ -15,7 +15,8 @@ const HeroSection = ({ data, children }) => {
       <div className="ct-container-hero-box-l">
         <div className="eyebrow">
           <p className="eyebrow-title">
-            {data?.relationships?.field_product_tags?.name?.toUpperCase()}
+            {data?.relationships?.field_product_tags?.name?.toUpperCase() ||
+              "PUBLICATIONS"}
           </p>
           {data?.field_published && (
             <>

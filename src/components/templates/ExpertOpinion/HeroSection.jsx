@@ -8,11 +8,10 @@ const HeroSection = ({ data }) => {
     <Container className="general-container p-0">
       <div className="ct-container-hero-box-l">
         <div className="eyebrow">
-          {data?.relationships?.field_product_tags?.name && (
-            <p className="eyebrow-title">
-              {data?.relationships?.field_product_tags?.name?.toUpperCase()}
-            </p>
-          )}
+          <p className="eyebrow-title">
+            {data?.relationships?.field_product_tags?.name?.toUpperCase() ||
+              "EXPERT ANALYSIS"}
+          </p>
           {data?.relationships?.field_product_tags?.name &&
             data?.field_published && <span className="eyebrow-divider"></span>}
           <p className="eyebrow-date">{data?.field_published?.toUpperCase()}</p>
@@ -51,7 +50,10 @@ const HeroSection = ({ data }) => {
                       <Author
                         name={item?.name}
                         designation={item?.field_designation}
-                        image={item?.relationships?.field_author_image?.relationships?.field_media_image}
+                        image={
+                          item?.relationships?.field_author_image?.relationships
+                            ?.field_media_image
+                        }
                         nameClasses="hero-author-title"
                         designationClasses="hero-author-designation"
                       />

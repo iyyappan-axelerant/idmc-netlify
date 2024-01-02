@@ -8,6 +8,7 @@ import TemplateSidebar from "../../molecules/TemplateSidebar";
 import "./ExpertOpinion.scss";
 import HeroSection from "./HeroSection";
 import { getParagraph } from "../../../utils/paragraphHelpers";
+import { ParagraphCarouselSlider } from "../../paragraphs/ParagraphCarouselSlider";
 
 const ExtpertOpinion = ({ data }) => {
   const paragraphs =
@@ -35,6 +36,10 @@ const ExtpertOpinion = ({ data }) => {
         </div>
       </TemplateLayout>
       <div className="pt-5">{paragraphs}</div>
+      <ParagraphCarouselSlider
+        data={data}
+        theme={data?.nodeExpertOpinion?.relationships?.field_theme}
+      ></ParagraphCarouselSlider>
     </Layout>
   );
 };
@@ -84,6 +89,7 @@ export const pageQuery = graphql`
         }
         field_theme {
           name
+          id
         }
         field_region {
           name
@@ -133,6 +139,27 @@ export const pageQuery = graphql`
         processed
         value
       }
+    }
+    localSearchPublications {
+      store
+    }
+    localSearchExpertopinions {
+      store
+    }
+    localSearchShorthand {
+      store
+    }
+    localSearchEvents {
+      store
+    }
+    localSearchPartnerSpotlight {
+      store
+    }
+    localSearchGoodPractice {
+      store
+    }
+    localSearchContentTypes {
+      store
     }
   }
 `;

@@ -3,6 +3,7 @@ import React from "react";
 import Seo from "../../atoms/seo";
 import Layout from "../../layout";
 import "./Features.scss";
+import { ParagraphCarouselSlider } from "../../paragraphs/ParagraphCarouselSlider";
 
 const Features = ({ data }) => {
   return (
@@ -18,6 +19,10 @@ const Features = ({ data }) => {
         height="100%"
         seamless="seamless"
       ></iframe>
+      <ParagraphCarouselSlider
+        data={data}
+        theme={data?.nodeIframe?.relationships?.field_theme}
+      ></ParagraphCarouselSlider>
     </Layout>
   );
 };
@@ -31,6 +36,15 @@ export const pageQuery = graphql`
       }
       title
       field_iframe_url
+      relationships {
+        field_theme {
+          name
+          id
+        }
+      }
+    }
+    localSearchContentTypes {
+      store
     }
   }
 `;

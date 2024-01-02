@@ -238,8 +238,6 @@
     font-weight: 900;
   }
 }
-
-
 blockquote{
   position: relative;
   padding: 18px 0 18px 111px;
@@ -250,6 +248,9 @@ blockquote{
   }
 
   &:before{
+    //position: absolute;
+    left: 60px;
+    top: 0px;
     content: url('/icons/quote.svg');
   }
 

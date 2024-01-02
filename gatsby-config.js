@@ -56,6 +56,9 @@ module.exports = {
         fastBuilds: true,
         requestTimeoutMS: 100000,
         concurrentAPIRequests: 20,
+        headers: {
+          "X-Consumer-ID": "15b1041b-233a-42a4-b14c-b436a748689b",
+        },
       },
     },
 
@@ -405,7 +408,7 @@ module.exports = {
           data.allNodeEvents.edges.map((edge) => ({
             id: edge?.node.id,
             title: edge?.node.title,
-            field_published:  edge?.node?.field_published,
+            field_published: edge?.node?.field_published,
             field_event_place: edge?.node?.field_event_place,
             type: edge?.node?.node_type?.drupal_internal__target_id,
             field_country: edge?.node?.relationships?.field_country,
@@ -697,6 +700,422 @@ module.exports = {
             slug: edge?.node?.fields,
             field_image: edge?.node?.relationships?.field_cover_image,
           })),
+      },
+    },
+    {
+      resolve: "gatsby-plugin-local-search",
+      options: {
+        name: "contentTypes",
+        engine: "flexsearch",
+        engineOptions: "speed",
+        query: `
+          {
+            allNodePublications(sort: { changed: DESC }) {
+              edges {
+                node {
+                  id
+                  title
+                  node_type {
+                    drupal_internal__target_id
+                  }
+                  fields {
+                    slug
+                  }
+                  field_published
+                  relationships {
+                    field_product_tags {
+                      name
+                      id
+                    }
+                    field_theme {
+                      name
+                      id
+                      drupal_internal__tid
+                    }
+                    field_region {
+                      name
+                      id
+                    }
+                    field_country {
+                      name
+                      id
+                    }
+                    field_image {
+                      url
+                      gatsbyImage(width: 500, height: 300)
+                    }
+                  }
+                }
+              }
+            }
+            allNodeExpertOpinion(sort: { changed: DESC }) {
+              edges {
+                node {
+                  id
+                  title
+                  field_published
+                  node_type {
+                    drupal_internal__target_id
+                  }
+                  relationships {
+                    field_product_tags {
+                      name
+                      id
+                    }
+                    field_theme {
+                      name
+                      id
+                      drupal_internal__tid
+                    }
+                    field_region {
+                      name
+                      id
+                    }
+                    field_country {
+                      name
+                      id
+                    }
+                    field_authors {
+                      name
+                      id
+                      relationships {
+                        field_author_image {
+                          relationships {
+                            field_media_image {
+                              gatsbyImage(width: 58, height: 58)
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  fields {
+                    slug
+                  }
+                }
+              }
+            }
+            allNodeShorthand(sort: { changed: DESC }) {
+              edges {
+                node {
+                  id
+                  title
+                  field_published
+                  field_iframe_url
+                  node_type {
+                    drupal_internal__target_id
+                  }
+                  relationships {
+                    field_product_tags {
+                      name
+                      id
+                    }
+                    field_theme {
+                      name
+                      id
+                      drupal_internal__tid
+                    }
+                    field_region {
+                      name
+                      id
+                    }
+                    field_country {
+                      name
+                      id
+                    }
+                  }
+                }
+              }
+            }
+            allNodeEvents(sort: { changed: DESC }) {
+              edges {
+                node {
+                  id
+                  title
+                  node_type {
+                    drupal_internal__target_id
+                  }
+                  field_published
+                  field_event_place
+                  relationships {
+                    field_product_tags {
+                      name
+                      id
+                    }
+                    field_theme {
+                      name
+                      id
+                      drupal_internal__tid
+                    }
+                    field_region {
+                      name
+                      id
+                    }
+                    field_country {
+                      name
+                      id
+                    }
+                    field_image {
+                      url
+                      gatsbyImage(width: 500, height: 300)
+                    }
+                  }
+                }
+              }
+            }
+            allNodePartnerSpotlight(sort: { changed: DESC }) {
+              edges {
+                node {
+                  id
+                  title
+                  field_published
+                  node_type {
+                    drupal_internal__target_id
+                  }
+                  relationships {
+                    field_product_tags {
+                      name
+                      id
+                    }
+                    field_theme {
+                      name
+                      id
+                    }
+                    field_metatag_image {
+                      url
+                      gatsbyImage(width: 500, height: 300)
+                    }
+                  }
+                }
+              }
+            }
+            allNodeGoodPractice(sort: { changed: DESC }) {
+              edges {
+                node {
+                  id
+                  title
+                  node_type {
+                    drupal_internal__target_id
+                  }
+                  fields {
+                    slug
+                  }
+                  field_time_frame
+                  relationships {
+                    field_product_tags {
+                      name
+                      id
+                    }
+                    field_theme {
+                      name
+                      id
+                    }
+                    field_authors {
+                      name
+                      id
+                    }
+                    field_country {
+                      name
+                      id
+                    }
+                    field_region {
+                      name
+                      id
+                    }
+                    field_gp_thumbnail_image {
+                      relationships {
+                        field_media_image {
+                          url
+                          gatsbyImage(width: 500, height: 500)
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            allNodeIframe {
+              edges {
+                node {
+                  id
+                  title
+                  field_published
+                  node_type {
+                    drupal_internal__target_id
+                  }
+                  fields {
+                    slug
+                  }
+                  relationships {
+                    field_product_tags {
+                      name
+                      id
+                    }
+                    field_theme {
+                      name
+                      id
+                    }
+                    field_authors {
+                      name
+                      id
+                    }
+                    field_country {
+                      name
+                      id
+                    }
+                    field_region {
+                      name
+                      id
+                    }
+                    field_image {
+                      url
+                      gatsbyImage(width: 10)
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+
+        ref: "id",
+        index: ["title"],
+        store: [
+          "id",
+          "title",
+          "type",
+          "field_published",
+          "field_country",
+          "field_region",
+          "field_theme",
+          "field_image",
+          "field_product_tags",
+          "slug",
+        ],
+
+        normalizer: ({ data }) => {
+          let allNodePublications = data.allNodePublications.edges.map(
+            (edge) => {
+              return {
+                id: edge?.node.id,
+                title: edge?.node.title,
+                type: edge?.node?.node_type?.drupal_internal__target_id,
+                field_country: edge?.node?.relationships?.field_country,
+                field_region: edge?.node?.relationships?.field_region,
+                field_theme: edge?.node?.relationships?.field_theme,
+                field_image: edge?.node?.relationships?.field_image,
+                field_product_tags:
+                  edge?.node?.relationships?.field_product_tags,
+                slug: edge?.node?.fields,
+                field_published: edge?.node?.field_published,
+              };
+            }
+          );
+          let allNodeExpertOpinion = data.allNodeExpertOpinion.edges.map(
+            (edge) => {
+              return {
+                id: edge?.node.id,
+                title: edge?.node.title,
+                type: edge?.node?.node_type?.drupal_internal__target_id,
+                field_country: edge?.node?.relationships?.field_country,
+                field_region: edge?.node?.relationships?.field_region,
+                field_theme: edge?.node?.relationships?.field_theme,
+                field_product_tags:
+                  edge?.node?.relationships?.field_product_tags,
+                field_authors: edge?.node?.relationships?.field_authors,
+                slug: edge?.node?.fields,
+                field_published: edge?.node?.field_published,
+              };
+            }
+          );
+          let allNodeShorthand = data.allNodeShorthand.edges.map((edge) => {
+            return {
+              id: edge?.node.id,
+              title: edge?.node.title,
+              type: edge?.node?.node_type?.drupal_internal__target_id,
+              field_country: edge?.node?.relationships?.field_country,
+              field_region: edge?.node?.relationships?.field_region,
+              field_theme: edge?.node?.relationships?.field_theme,
+              slug: edge?.node?.field_iframe_url,
+              field_published: edge?.node?.field_published,
+            };
+          });
+          let allNodeEvents = data.allNodeEvents.edges.map((edge) => {
+            return {
+              id: edge?.node.id,
+              title: edge?.node.title,
+              field_published: edge?.node?.field_published,
+              field_event_place: edge?.node?.field_event_place,
+              type: edge?.node?.node_type?.drupal_internal__target_id,
+              field_country: edge?.node?.relationships?.field_country,
+              field_region: edge?.node?.relationships?.field_region,
+              field_theme: edge?.node?.relationships?.field_theme,
+              field_image: edge?.node?.relationships?.field_image,
+              field_product_tags: edge?.node?.relationships?.field_product_tags,
+            };
+          });
+          let allNodePartnerSpotlight = data.allNodePartnerSpotlight.edges.map(
+            (edge) => {
+              return {
+                id: edge?.node.id,
+                title: edge?.node.title,
+                type: edge?.node?.node_type?.drupal_internal__target_id,
+                field_theme: edge?.node?.relationships?.field_theme,
+                field_image: edge?.node?.relationships?.field_metatag_image,
+                field_product_tags:
+                  edge?.node?.relationships?.field_product_tags,
+                field_published: edge?.node?.field_published,
+              };
+            }
+          );
+          let allNodeGoodPractice = data.allNodeGoodPractice.edges.map(
+            (edge) => {
+              return {
+                id: edge?.node.id,
+                title: edge?.node.title,
+                type: edge?.node?.node_type?.drupal_internal__target_id,
+                field_theme: edge?.node?.relationships?.field_theme,
+                field_country: edge?.node?.relationships?.field_country,
+                field_region: edge?.node?.relationships?.field_region,
+                field_authors: edge?.node?.relationships?.field_authors,
+                slug: edge?.node?.fields,
+                field_image:
+                  edge?.node?.relationships?.field_gp_thumbnail_image
+                    ?.relationships?.field_media_image,
+                field_product_tags:
+                  edge?.node?.relationships?.field_product_tags,
+                field_time_frame: edge?.node?.field_time_frame,
+              };
+            }
+          );
+          let allNodeIframe = data.allNodeIframe.edges.map((edge) => {
+            return {
+              id: edge?.node.id,
+              title: edge?.node.title,
+              type: edge?.node?.node_type?.drupal_internal__target_id,
+              field_theme: edge?.node?.relationships?.field_theme,
+              field_country: edge?.node?.relationships?.field_country,
+              field_region: edge?.node?.relationships?.field_region,
+              field_authors: edge?.node?.relationships?.field_authors,
+              slug: edge?.node?.fields,
+              field_image:
+                edge?.node?.relationships?.field_gp_thumbnail_image
+                  ?.relationships?.field_media_image,
+              field_product_tags: edge?.node?.relationships?.field_product_tags,
+              field_published: edge?.node?.field_published,
+            };
+          });
+          let arr = [
+            ...allNodePublications,
+            ...allNodeExpertOpinion,
+            ...allNodeShorthand,
+            ...allNodeEvents,
+            ...allNodePartnerSpotlight,
+            ...allNodeGoodPractice,
+            ...allNodeIframe,
+          ];
+          return arr;
+        },
       },
     },
   ],
